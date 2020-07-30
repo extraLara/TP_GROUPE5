@@ -69,7 +69,7 @@ class Facture{
     public function setOptions($options){
         $this->options = $options;
     }
-
+    //fonctions permettant de faire
     public function genFacture(){
 
     }
