@@ -12,6 +12,10 @@ class Employe extends Personne
     private $poste;
 
 
+
+    //METHODES
+    //--------------------------------------------------------------------------------------------------------------
+
     //Déclaration du constructeur
     public function __construct($nouveauLogin, $nouveauMdp, $nouveauPoste)
     {
@@ -24,35 +28,36 @@ class Employe extends Personne
 
 
 
-     //fonction annulerResa
+     //Fonction annulerResa
      public function annulerResa()
     {
         //TO DO
     }
 
-    //fonction modifierResa
+    //Fonction modifierResa
     public function modifierResa()
     {
         //TO DO
     }
 
     
-    //fonction gestion hotel 
+    //Fonction gestion hotel
     public function gestionHotel()
     {
         //TO DO
 
     }
 
-    //fonction reserver hotel 
+    //Fonction reserver hotel
     public function reserver()
     {
         //TO DO
 
     }
 
-    //fonction generer facture
+    //Fonction generer facture
     public function genFacture()
+        // tool::???
     {
         //TO DO
 
@@ -61,7 +66,8 @@ class Employe extends Personne
 
 
 
-    //Getter & Setter
+    //GETTER ET SETTER
+    //----------------------------------------------------------------------------------------------------
     /**
      * @return mixed
      */

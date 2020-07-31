@@ -8,11 +8,11 @@
         protected $chiffreAffaire;
 
         //Déclaration du constructeur
-        public function __construct($nouveauNom, $nouveauLieu, $nouveauNombreChambres, $nouveauChiffreAff){
+        public function __construct($nouveauNom, $nouveauLieu, $nouveauNombreChambres, $nouveauChiffreAffaire){
             $this->nom = $nouveauNom;
             $this->lieu = $nouveauLieu;
             $this->nombreChambres = $nouveauNombreChambres;
-            $this->chiffreAffaire = $nouveauChiffreAff;
+            $this->chiffreAffaire = $nouveauChiffreAffaire;
         }
 
 
@@ -24,20 +24,20 @@
         }
 
 
-        //Fonction afficher l'etat de l'hotel 
+        //Afficher l'etat de l'hotel
         public function afficheEtat(): string{
             return "Nom : ".$this->nom." adresse : ".$this->lieu." l'Hotel se compose de : ".count($this->nombreChambres). " chambres.";
         }
 
 
-        //Fonction afficher le nombre de chambre libre
+        //Afficher le nombre de chambre libre
         public function nbChLibre(): int
         {
             return $this->nombreChambres;
         }
 
 
-        //Fonction Calcul du chiffre affaire 
+        //Calcul du chiffre affaire
         public function chiffreAffaire(): float{
             return $this->chiffreAffaire;
         }
@@ -45,16 +45,8 @@
 
 
 
-
-
-
-
-
-
-
-
-
-        //GETTER
+        //GETTER ET SETTER
+        //--------------------------------------------------------------------------------------------------
         public function getNom(): string{
             return $this->nom;
         }
@@ -64,7 +56,7 @@
         }
 
         public function getNombreChambres(): string{
-            return $this ->getNombreChambre;
+            return $this ->getNombreChambres;
         }
 
         public function getChiffreAffaire(): string{
@@ -72,7 +64,6 @@
         }
 
 
-        //SETTER
         public function setNom($nouveauNom):void{
             $this->nom = $nouveauNom;
         }
@@ -85,8 +76,8 @@
             $this->nombrechambres = $nouveauNombreChambres; 
         }
         
-        public function setNombreChambres($chiffreAffaire): void{
-            $this->chiffreAffaire = $nouveauChiffreAff; 
+        public function setChiffreAffaire($chiffreAffaire): void{
+            $this->chiffreAffaire = $nouveauChiffreAffaire;
         }
 
     }

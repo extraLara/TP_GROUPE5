@@ -6,50 +6,73 @@ class Facture{
     //définitions et initialisations des attributs
 
     public $date;
-    public $nom;
-    public $prenom;
+    public $numFacture;
+    public $nomHotel;
+    public $adresse;
+    public $tel;
+    public $email;
+    public $nomPrenomClient;
     private $typeChambre;
-    public $tarif;
     public $options;
+    public $prixHT;
+    public $prixTTC;
+    public $TVA;
+    public $nbNuits;
+    public $totalRes;
 
-    public function __construct($nouvelleDate, $nouveauNom, $nouveauPrenom, $nouveauTypeCh, $nouveauTarif, $nouvellesOptions){
+
+    //METHODES
+    //----------------------------------------------------------------------------------------------------------
+
+    public function __construct($nouvelleDate, $nouveauNumFacture,$nouveauNomHotel,$nouveauAdresse,$nouveauTel,$nouveauEmail,$nouveauNomPrenomClient,$nouveauTypeChambre,$nouvellesOptions,$nouveauPrixHT,$nouveauPrixTTC,$nouveauTVA,$nouveauNbNuits,$nouveauTotalRes){
 
         $this->date = $nouvelleDate;
-        $this->nom = $nouveauNom;
-        $this->prenom = $nouveauPrenom;
-        $this->typeChambre = $nouveauTypeCh;
-        $this->tarif = $nouveauTarif;
+        $this->numFacture = $nouveauNumFacture;
+        $this->nomHotel = $nouveauNomHotel;
+        $this->adresse = $nouveauAdresse;
+        $this->tel = $nouveauTel;
+        $this->email = $nouveauEmail;
+        $this->nomPrenomClient = $nouveauNomPrenomClient;
+        $this->typeChambre = $nouveauTypeChambre;
         $this->options = $nouvellesOptions;
+        $this->prixHT = $nouveauPrixHT;
+        $this->prixTTC = $nouveauPrixTTC;
+        $this->TVA = $nouveauTVA;
+        $this->nbNuits = $nouveauNbNuits;
+        $this->totalRes = $nouveauTotalRes;
     }
 
-    //fonction generer facture
-    public function genFacture()
-    {
-        // TO DO
-    }
 
-    //fonction calcul prix ttc 
+
+    //Fonction calcul prix ttc
     public function calculPrixTTC()
     {
-
+    $this->calculPrixTTC = $this->prixHT + ($this->prixHT * $this->TVA / 100);
+    return $this->calculPrixTTC();
 
     }
 
 
-    //fonction calcul TVA
+/*
+    //Fonction calcul TVA
     public function calculTVA()
     {
         //TO DO 
     }
+*/
 
-    //fonctions permettant de faire la génération de Facture
+    //Fonctions permettant de faire la génération de Facture
     public function genFacture()
     {
         //$this->toolObj->envoyerMail(Personne->getEmail(), "Ma facture", "<p>Facture N°</p>")
 
     }
 
-        //GETTER AND SETTER
+
+
+
+    //GETTER AND SETTER
+    //------------------------------------------------------------------------------------------------------------
     public function getDate(){
         return $this->date;
     }
@@ -98,6 +121,181 @@ class Facture{
         $this->options = $options;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getNumFacture()
+    {
+        return $this->numFacture;
+    }
+
+    /**
+     * @param mixed $numFacture
+     */
+    public function setNumFacture($numFacture)
+    {
+        $this->numFacture = $numFacture;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNomHotel()
+    {
+        return $this->nomHotel;
+    }
+
+    /**
+     * @param mixed $nomHotel
+     */
+    public function setNomHotel($nomHotel)
+    {
+        $this->nomHotel = $nomHotel;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAdresse()
+    {
+        return $this->adresse;
+    }
+
+    /**
+     * @param mixed $adresse
+     */
+    public function setAdresse($adresse)
+    {
+        $this->adresse = $adresse;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTel()
+    {
+        return $this->tel;
+    }
+
+    /**
+     * @param mixed $tel
+     */
+    public function setTel($tel)
+    {
+        $this->tel = $tel;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param mixed $email
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNomPrenomClient()
+    {
+        return $this->nomPrenomClient;
+    }
+
+    /**
+     * @param mixed $nomPrenomClient
+     */
+    public function setNomPrenomClient($nomPrenomClient)
+    {
+        $this->nomPrenomClient = $nomPrenomClient;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPrixHT()
+    {
+        return $this->prixHT;
+    }
+
+    /**
+     * @param mixed $prixHT
+     */
+    public function setPrixHT($prixHT)
+    {
+        $this->prixHT = $prixHT;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPrixTTC()
+    {
+        return $this->prixTTC;
+    }
+
+    /**
+     * @param mixed $prixTTC
+     */
+    public function setPrixTTC($prixTTC)
+    {
+        $this->prixTTC = $prixTTC;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTVA()
+    {
+        return $this->TVA;
+    }
+
+    /**
+     * @param mixed $TVA
+     */
+    public function setTVA($TVA)
+    {
+        $this->TVA = $TVA;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNbNuits()
+    {
+        return $this->nbNuits;
+    }
+
+    /**
+     * @param mixed $nbNuits
+     */
+    public function setNbNuits($nbNuits)
+    {
+        $this->nbNuits = $nbNuits;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTotalRes()
+    {
+        return $this->totalRes;
+    }
+
+    /**
+     * @param mixed $totalRes
+     */
+    public function setTotalRes($totalRes)
+    {
+        $this->totalRes = $totalRes;
+    }
 
     }
 

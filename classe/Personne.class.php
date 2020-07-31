@@ -9,6 +9,9 @@
         protected $tel;
         protected $adresse;
 
+
+    //METHODE
+    //------------------------------------------------------------------------------------------------
     //Déclaration du constructeur
     public function __construct($nouveauNom,$nouveauPrenom,$nouveauDateDeNaissance,$nouveauEmail,$nouveauTel,$nouveauAdresse ){
         $this->nom = $nouveauNom;
@@ -20,7 +23,8 @@
     }
 
 
-    //Getter & Setter
+    //GETTER ET SETTER
+    //------------------------------------------------------------------------------------------------
         /**
          * @return mixed
          */

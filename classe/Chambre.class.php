@@ -10,9 +10,11 @@
         private $superficie; 
         public $prix; 
         public $typeChambre; 
-        public $options; 
-        
+        public $options;
 
+
+        //Methodes
+        //------------------------------------------------------
         //Déclaration du constructeur
         public function __construct($nouveauNom, $nouveauLieu, $nouveauNombreChambres, $nouveauChiffreAff, $nouvelEtat, $nouveauNumeroChambre, $nouveauNomFichierCSV,$nouveauSuperficie,$nouveauPrix,$nouveauTypeChambre,$nouveauOptions){
 
@@ -29,13 +31,11 @@
         }
 
 
-        //Methodes
-        //------------------------------------------------------
-
         //Fonction toString
         public function __toString(): string{
             return "Nom : ".parent::getNom().PHP_EOL. " Adresse : ".parent::getLieu().PHP_EOL. " Etat : ".$this->etat.PHP_EOL." Chambre n° : ".$this->chambreNumero;
         }
+
 
         //Fonction recuperation CSV
         public function csv(){
@@ -53,12 +53,19 @@
             //array_filter()
         }
 
+        /*
+        //Fonction de tri des chambres
         public function triChambre(){
             //array_filter()
         }
+        */
+
+        //Fonction reserver Chambre
         public function reserveChambre(){
             $this->setEtat(1);
         }
+
+        //Fonction Liberer la chambre
         public function libereChambre(){
             $this->setEtat(0);
         }

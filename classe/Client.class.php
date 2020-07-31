@@ -12,6 +12,9 @@
     private $reservation;
 
 
+    //Methode
+    //---------------------------------------------------------------------------------------------
+
     //Déclaration du constructeur
     public function __construct($nouveauLogin, $nouveauMdp, $nouveauReservation)
     {
@@ -44,6 +47,7 @@
 
      
     //GETTER & SETTER
+    //------------------------------------------------------------------------------------------------------------------
         /**
          * @return mixed
          */

@@ -59,7 +59,7 @@
 
             $codeSourceHTML = "
             
-            
+            //TO DO : code HTML
             
             
             ";
@@ -75,13 +75,9 @@
         public function envoyerMail($adresseMailClient, $sujet, $body): void{
             $this->envoiMail->setFrom('lshotelspa@hotmail.com', 'HOTEL 5 ETOILES'); // Personnaliser l'envoyeur
             $this->envoiMail->addAddress($adresseMailClient); // Ajouter le destinataire
-
             $this->envoiMail->addCC('addresse de MOUSSA');
-            
-            //$this->envoiMail->addAttachment(''); // Ajouter un attachement
-            
+            //$this->envoiMail->addAttachment(''); // Ajouter un fichier joint
             $this->envoiMail->isHTML(true); // Paramétrer le format des emails en HTML ou non
-            
             $this->envoiMail->Subject = $sujet;
             $this->envoiMail->Body = $body;
 
