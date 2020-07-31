@@ -28,29 +28,16 @@
             parent::__construct($nouveauNom, $nouveauLieu, $nouveauNombreChambres, $nouveauChiffreAff);
         }
 
-        //GETTER
-        public function getEtat(): int{
-            return (int)$this->etat;
-        }
 
-        public function getChambreNumero(): int{
-            return $this->chambreNumero;
-        }
+        //Methodes
+        //------------------------------------------------------
 
-        //SETTER
-        public function setEtat($nouveauNom):void{
-            $this->etat = $nouveauNom;
-        }
-
-        public function setChambreNumero($nouveauNumeroChambre): void{
-            $this->chambreNumero = $nouveauNumeroChambre;
-        }
-
-        //toString
+        //Fonction toString
         public function __toString(): string{
             return "Nom : ".parent::getNom().PHP_EOL. " Adresse : ".parent::getLieu().PHP_EOL. " Etat : ".$this->etat.PHP_EOL." Chambre n° : ".$this->chambreNumero;
         }
 
+        //Fonction recuperation CSV
         public function csv(){
             $handle = fopen($this->nomFichierCSV, "r");
             for ($i = 0; $row = fgetcsv($handle); ++$i) {
@@ -61,6 +48,7 @@
 
         }
 
+        //Fonction filtrer chambre
         public function filtreChambre(){
             //array_filter()
         }

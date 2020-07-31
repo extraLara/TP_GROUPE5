@@ -21,6 +21,34 @@ class Facture{
         $this->tarif = $nouveauTarif;
         $this->options = $nouvellesOptions;
     }
+
+    //fonction generer facture
+    public function genFacture()
+    {
+        // TO DO
+    }
+
+    //fonction calcul prix ttc 
+    public function calculPrixTTC()
+    {
+
+
+    }
+
+
+    //fonction calcul TVA
+    public function calculTVA()
+    {
+        //TO DO 
+    }
+
+    //fonctions permettant de faire la génération de Facture
+    public function genFacture()
+    {
+        //$this->toolObj->envoyerMail(Personne->getEmail(), "Ma facture", "<p>Facture N°</p>")
+
+    }
+
         //GETTER AND SETTER
     public function getDate(){
         return $this->date;
@@ -70,9 +98,7 @@ class Facture{
         $this->options = $options;
     }
 
-    //fonctions permettant de faire la génération de Facture
-    public function genFacture(){
-        //$this->toolObj->envoyerMail(Personne->getEmail(), "Ma facutre", "<p>Hola</p>")
+
     }
 
 }
