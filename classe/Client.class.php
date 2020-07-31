@@ -22,13 +22,27 @@
         parent::__construct($nouveauNom,$nouveauPrenom,$nouveauDateDeNaissance,$nouveauEmail,$nouveauTel,$nouveauAdresse);
     }
 
-    //function __tostring et appelle de la fonction parente
-    public function __toString(): string
+    //function modifier reservation
+    public function modifResa():
     {
-        return
+        //TO DO 
     }
 
+    //fonction annuler reservation
+    public function annulerResa():
+    {
+        //To DO
+    }
 
+     //fonction reglement du client
+     public function reglement():
+     {
+         //To DO
+     }
+ 
+
+
+     
     //GETTER & SETTER
         /**
          * @return mixed

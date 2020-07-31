@@ -7,13 +7,23 @@
         private $etat;
         private $chambreNumero;
         private $nomFichierCSV;
+        private $superficie; 
+        public $prix; 
+        public $typeChambre; 
+        public $options; 
+        
 
         //Déclaration du constructeur
-        public function __construct($nouveauNom, $nouveauLieu, $nouveauNombreChambres, $nouveauChiffreAff, $nouvelEtat, $nouveauNumeroChambre, $nouveauNomFichierCSV){
+        public function __construct($nouveauNom, $nouveauLieu, $nouveauNombreChambres, $nouveauChiffreAff, $nouvelEtat, $nouveauNumeroChambre, $nouveauNomFichierCSV,$nouveauSuperficie,$nouveauPrix,$nouveauTypeChambre,$nouveauOptions){
+
             //Définition de la chambre
             $this->etat = $nouvelEtat;
             $this->chambreNumero = $nouveauNumeroChambre;
             $this->nomFichierCSV = $nouveauNomFichierCSV;
+            $this->superficie = $nouveauSuperficie; 
+            $this->prix = $nouveauPrix;
+            $this->typeChambre = $nouveauTypeChambre;
+            $this->options = $nouveauOptions;                      
             //appel du constructeur
             parent::__construct($nouveauNom, $nouveauLieu, $nouveauNombreChambres, $nouveauChiffreAff);
         }

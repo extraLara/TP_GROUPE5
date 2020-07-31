@@ -22,11 +22,43 @@ class Employe extends Personne
         parent::__construct($nouveauNom,$nouveauPrenom,$nouveauDateDeNaissance,$nouveauEmail,$nouveauTel,$nouveauAdresse);
     }
 
-    //function __tostring et appelle de la fonction parente
-    public function __toString(): string
+
+
+     //fonction annulerResa
+     public function annulerResa()
     {
-        return
+        //TO DO
     }
+
+    //fonction modifierResa
+    public function modifierResa()
+    {
+        //TO DO
+    }
+
+    
+    //fonction gestion hotel 
+    public function gestionHotel()
+    {
+        //TO DO
+
+    }
+
+    //fonction reserver hotel 
+    public function reserver()
+    {
+        //TO DO
+
+    }
+
+    //fonction generer facture
+    public function genFacture()
+    {
+        //TO DO
+
+    }
+
+
 
 
     //Getter & Setter

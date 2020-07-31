@@ -21,12 +21,12 @@
             $this->envoiMail = new PHPmailer();
             //Configuration du mail
             $this->envoiMail->isSMTP(); // Paramétrer le Mailer pour utiliser SMTP 
-            $this->envoiMail->Host = 'smtp.gmail.com'; // Spécifier le serveur SMTP
+            $this->envoiMail->Host = 'SMTP.office365.com'; // Spécifier le serveur SMTP
             $this->envoiMail->SMTPAuth = true; // Activer authentication SMTP
-            $this->envoiMail->Username = 'user@votredomaine.com'; // Votre adresse email d'envoi
-            $this->envoiMail->Password = 'secret'; // Le mot de passe de cette adresse email
+            $this->envoiMail->Username = 'lshotelspa@hotmail.com'; // Votre adresse email d'envoi
+            $this->envoiMail->Password = 'LShotel2020'; // Le mot de passe de cette adresse email
             $this->envoiMail->SMTPSecure = 'ssl'; // Accepter SSL
-            $this->envoiMail->Port = 465;
+            $this->envoiMail->Port = 587;
             //Definition du nom de fichier
             $this->csvNomFichier = $nouveauCsvNomFichier;
             //Création du tableau qui contient l'ensemble du csv
@@ -73,7 +73,7 @@
         //MAIL
         //---------------------------------------------------------------
         public function envoyerMail($adresseMailClient, $sujet, $body): void{
-            $this->envoiMail->setFrom('from@example.com', 'HOTEL 5 ETOILES'); // Personnaliser l'envoyeur
+            $this->envoiMail->setFrom('lshotelspa@hotmail.com', 'HOTEL 5 ETOILES'); // Personnaliser l'envoyeur
             $this->envoiMail->addAddress($adresseMailClient); // Ajouter le destinataire
 
             $this->envoiMail->addCC('addresse de MOUSSA');
