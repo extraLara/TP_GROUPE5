@@ -4,7 +4,6 @@
 class Facture{
 
     //définitions et initialisations des attributs
-
     public $date;
     public $numFacture;
     public $nomHotel;
@@ -25,7 +24,7 @@ class Facture{
     //----------------------------------------------------------------------------------------------------------
 
     public function __construct($nouvelleDate, $nouveauNumFacture,$nouveauNomHotel,$nouveauAdresse,$nouveauTel,$nouveauEmail,$nouveauNomPrenomClient,$nouveauTypeChambre,$nouvellesOptions,$nouveauPrixHT,$nouveauPrixTTC,$nouveauTVA,$nouveauNbNuits,$nouveauTotalRes){
-
+        //Initialiation des attributs
         $this->date = $nouvelleDate;
         $this->numFacture = $nouveauNumFacture;
         $this->nomHotel = $nouveauNomHotel;
@@ -40,36 +39,30 @@ class Facture{
         $this->TVA = $nouveauTVA;
         $this->nbNuits = $nouveauNbNuits;
         $this->totalRes = $nouveauTotalRes;
+        //Initialisation de l'objet "tool"
+        $this->objTool = new Tool("../input/ListeChambres_V3.csv");
     }
 
 
 
     //Fonction calcul prix ttc
-    public function calculPrixTTC()
-    {
-    $this->calculPrixTTC = $this->prixHT + ($this->prixHT * $this->TVA / 100);
-    return $this->calculPrixTTC();
-
+    public function calculPrixTTC(): void{
+        $this->prixTTC = $this->prixHT + ($this->prixHT * ($this->TVA / 100));
     }
 
-
-/*
     //Fonction calcul TVA
-    public function calculTVA()
-    {
-        //TO DO 
+    public function calculTVA(){
+        $this->prixHT = $this->prixTTC * (100 / ($this->TVA + 100));
     }
-*/
 
     //Fonctions permettant de faire la génération de Facture
-    public function genFacture()
-    {
-        //$this->toolObj->envoyerMail(Personne->getEmail(), "Ma facture", "<p>Facture N°</p>")
-
+    public function genFacture(): void{
+        //$this->toolObj->createPDF();
     }
 
-
-
+    public function genMail(): void{
+        //$this->toolObj->envoyerMail(Personne->getEmail(), "Ma facture", "<p>Facture N°</p>");
+    }
 
     //GETTER AND SETTER
     //------------------------------------------------------------------------------------------------------------
@@ -295,8 +288,6 @@ class Facture{
     public function setTotalRes($totalRes)
     {
         $this->totalRes = $totalRes;
-    }
-
     }
 
 }

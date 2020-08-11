@@ -2,52 +2,46 @@
 
     //Appel de la classe parente
     include "Personne.class.php";
-    class Client extends Personne
-    {
+    
+    class Client extends Personne{
+
+        //Déclarations des attributs
+        private $login;
+        private $mdp;
+        //Obj de la chambre
+        private $reservation;
 
 
-    //Déclarations des attributs
-    private $login;
-    private $mdp;
-    private $reservation;
+        //Methode
+        //---------------------------------------------------------------------------------------------
 
+        //Déclaration du constructeur
+        public function __construct($nouveauLogin, $nouveauMdp, $nouveauReservation){
+            $this->login = $nouveauLogin;
+            $this->mdp = $nouveauMdp;
+            $this->reservation = $nouveauReservation;
+            //on appelle le construct parent
+            parent::__construct($nouveauNom,$nouveauPrenom,$nouveauDateDeNaissance,$nouveauEmail,$nouveauTel,$nouveauAdresse);
+        }
 
-    //Methode
-    //---------------------------------------------------------------------------------------------
+        //function pour reserver
+        public function reserverLaChambre(): void{
+            $this->reservation->reserveChambre();
+        }
 
-    //Déclaration du constructeur
-    public function __construct($nouveauLogin, $nouveauMdp, $nouveauReservation)
-    {
-        $this->login = $nouveauLogin;
-        $this->mdp = $nouveauMdp;
-        $this->reservation = $nouveauReservation;
-        //on appelle le construct parent
-        parent::__construct($nouveauNom,$nouveauPrenom,$nouveauDateDeNaissance,$nouveauEmail,$nouveauTel,$nouveauAdresse);
-    }
+        //fonction annuler reservation
+        public function annulerResa(): void{
+            $this->reservation->libereChambre();
+        }
 
-    //function modifier reservation
-    public function modifResa():
-    {
-        //TO DO 
-    }
-
-    //fonction annuler reservation
-    public function annulerResa():
-    {
-        //To DO
-    }
-
-     //fonction reglement du client
-     public function reglement():
-     {
-         //To DO
-     }
+        //fonction reglement du client
+        public function reglement(): void{
+            //Va definir a 1 si la chambre est payé
+            $this->reservation->payer(1);
+        }
  
-
-
-     
-    //GETTER & SETTER
-    //------------------------------------------------------------------------------------------------------------------
+        //GETTER & SETTER
+        //------------------------------------------------------------------------------------------------------------------
         /**
          * @return mixed
          */

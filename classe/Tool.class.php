@@ -87,6 +87,12 @@
                 var_dump($e->getMessage());
             }
         }
+
+
+        //GETTER
+        public function getCSVInformation(){
+            return $this->csvImport;
+        }
        
         
     }

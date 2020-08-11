@@ -6,13 +6,15 @@
         protected $lieu;
         protected $nombreChambres;
         protected $chiffreAffaire;
+        protected $objTool;
 
         //Déclaration du constructeur
-        public function __construct($nouveauNom, $nouveauLieu, $nouveauNombreChambres, $nouveauChiffreAffaire){
+        public function __construct($nouveauNom, $nouveauLieu, $nouveauNombreChambres, $nouveauChiffreAffaire, $nouveauNomFichierCSV){
             $this->nom = $nouveauNom;
             $this->lieu = $nouveauLieu;
             $this->nombreChambres = $nouveauNombreChambres;
             $this->chiffreAffaire = $nouveauChiffreAffaire;
+            $this->objTool = new Tool($nouveauNomFichierCSV);
         }
 
 
@@ -31,19 +33,19 @@
 
 
         //Afficher le nombre de chambre libre
-        public function nbChLibre(): int
-        {
+        public function nbChLibre(): int{
             return $this->nombreChambres;
         }
-
 
         //Calcul du chiffre affaire
         public function chiffreAffaire(): float{
             return $this->chiffreAffaire;
         }
 
-
-
+        //Recuperation de toutes les chambres
+        public function initChambres(){
+            //$getChambres = $this->objTool->getgetCSVInformation();
+        }
 
         //GETTER ET SETTER
         //--------------------------------------------------------------------------------------------------

@@ -3,67 +3,25 @@
 //Appel de la classe parente
 include "Personne.class.php";
 
-class Employe extends Personne
-{
+class Employe extends Personne{
 
     //Déclarations des attributs
     private $login;
     private $mdp;
     private $poste;
 
-
-
     //METHODES
     //--------------------------------------------------------------------------------------------------------------
 
     //Déclaration du constructeur
-    public function __construct($nouveauLogin, $nouveauMdp, $nouveauPoste)
-    {
+    public function __construct($nouveauLogin, $nouveauMdp, $nouveauPoste, $nouveauNom, $nouveauPrenom, $nouveauDateDeNaissance, $nouveauEmail, $nouveauTel, $nouveauAdresse){
+        //Définition des attributs
         $this->login = $nouveauLogin;
         $this->mdp = $nouveauMdp;
         $this->poste = $nouveauPoste;
         //on appelle le construct parent
         parent::__construct($nouveauNom,$nouveauPrenom,$nouveauDateDeNaissance,$nouveauEmail,$nouveauTel,$nouveauAdresse);
     }
-
-
-
-     //Fonction annulerResa
-     public function annulerResa()
-    {
-        //TO DO
-    }
-
-    //Fonction modifierResa
-    public function modifierResa()
-    {
-        //TO DO
-    }
-
-    
-    //Fonction gestion hotel
-    public function gestionHotel()
-    {
-        //TO DO
-
-    }
-
-    //Fonction reserver hotel
-    public function reserver()
-    {
-        //TO DO
-
-    }
-
-    //Fonction generer facture
-    public function genFacture()
-        // tool::???
-    {
-        //TO DO
-
-    }
-
-
 
 
     //GETTER ET SETTER
