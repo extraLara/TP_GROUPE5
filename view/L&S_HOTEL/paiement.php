@@ -8,6 +8,8 @@
   }
 ?>
 
+
+ <!-- Css loader-->
 <style>
     .lds-spinner {
   color: official;
@@ -15,6 +17,7 @@
   position: relative;
   width: 80px;
   height: 80px;
+  padding-left:180px
 }
 .lds-spinner div {
   transform-origin: 40px 40px;
@@ -29,7 +32,7 @@
   width: 6px;
   height: 18px;
   border-radius: 20%;
-  background: #fff;
+  background: #eebb4d;
 }
 .lds-spinner div:nth-child(1) {
   transform: rotate(0deg);
@@ -166,7 +169,7 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                             </div>
-                            <div class="modal-body bg-dark text-align">
+                            <div class="modal-body text-align">
                                 <div class="lds-spinner" id="loader"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
 
                                 <p id="infoModal">
