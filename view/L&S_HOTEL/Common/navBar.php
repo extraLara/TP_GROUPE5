@@ -54,7 +54,7 @@
         <ul class="navbar-nav">
         <?php
           if($recupSession == 1){
-            echo '<li class="nav-item"> <a class="nav-link" href="profil.php">Mon espace</a> </li>';
+            echo '<li class="nav-item"> <a class="nav-link" href="reservationCli.php">Mon espace</a> </li>';
             echo '<li class="nav-item"> <a class="nav-link" style="color:#EEBB4D" href="../../controller/logoutController.php"><b>Deconnexion</b></a> </li>';
           }else{
             echo '<li class="nav-item"> <a class="nav-link" href="connexion.php">Se connecter</a> </li>';

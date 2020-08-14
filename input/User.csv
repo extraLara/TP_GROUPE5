@@ -1,3 +1,4 @@
 Nom;Prenom;DateNaissance;Adresse;Ville;CP;Tel;Mail;Login;Pass
 "Bond;James;2001-01-01;123 rue bidon;Lille;69310;0786158046;mail@mail.fr;test;123"
 "Ben;Delarure;2001-01-01;123 rue bidon;Lille;69310;0786158046;mail@mail.fr;ben;123"
+"Lara;bond;2001-01-01;123 rue bidon;lille;59310;01010101;mail@mail.fr;lara;123"
