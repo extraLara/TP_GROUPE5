@@ -134,7 +134,7 @@
             echo '    <img src="assets/rooms/room_'.$compteurImage.'.jpg" class="card-img-top" alt="...">';
             echo '    <div class="card-body">';
             echo '        <div class="col-12"><h5 class="card-title"><?php echo $chambre1[0];?></h5>';
-            echo '          <p class="card-text">'.$row[1].'<br>'.$row[2].'<br>'.$row[3].'<br>';
+            echo '          <p class="card-text">'.$row[0].'<br>'.$row[1].'<br>'.$row[2].'<br>'.$row[3].'<br>';
            // echo '            Options :';
             //echo '            <ul>';
                                 /*foreach(explode('|', $row[6]) as $value){
