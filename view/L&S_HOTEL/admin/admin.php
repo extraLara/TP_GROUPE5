@@ -1,7 +1,90 @@
 <?php 
 //Appel de la navbar
 include('common/header.php');
+//Varialbe general
+$chiffeAffaire = 0;
+$chambreLibres = 0;
+//Recuperation des chambres
+$recupChambres = array();
+//Importation des lignes
+$handle = fopen("../../../input/ListeChambres_V3.csv", "r");
+for ($i = 0;$row = fgetcsv($handle);$i++) {
+    //Tant que j'ai une ligne, j'ajoute dans mon tableau
+    array_push($recupChambres, $row);
+}
+//Je ferme le fichier
+fclose($handle);
+//Suppression du premier element
+array_shift($recupChambres);
+
+//Calcul du chiffre d'affaires
+$recupReservation = array();
+//Importation des lignes
+$handle = fopen("../../../input/Reservation.csv", "r");
+for ($i = 0;$row = fgetcsv($handle);$i++) {
+    //Tant que j'ai une ligne, j'ajoute dans mon tableau
+    array_push($recupReservation, $row);
+}
+//Je ferme le fichier
+fclose($handle);
+//Suppression du premier element
+array_shift($recupReservation);
+
+//recuperation du chiffre d'affaire
+foreach($recupReservation as $row){
+  $compteurChambres = 1;
+  $recupIDReservation = explode(';', $row[0])[2];
+  foreach($recupChambres as $value){
+    if($compteurChambres == $recupIDReservation){
+      $chiffeAffaire += explode(';', $value[0])[4];
+    }
+    $compteurChambres++;
+  }
+}
+
+//Calcul du nombres de chambres reserver
+$chambreLibres = count($recupChambres) - count($recupReservation);
+
 ?>
+
+<script>
+// Set new default font family and font color to mimic Bootstrap's default styling
+Chart.defaults.global.defaultFontFamily = 'abel', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+Chart.defaults.global.defaultFontColor = '#858796';
+
+// Pie Chart 
+var ctx = document.getElementById("myPieChart");
+var myPieChart = new Chart(ctx, {
+  type: 'doughnut',
+  data: {
+    labels: ["Libres", "Reservées"],
+    datasets: [{
+      data: [<?php echo count($recupIDReservation);?>, <?php echo count($recupChambres);?>],
+      backgroundColor: ['#082d41', '#eebb4d'],
+      hoverBackgroundColor: ['#0b5a85', '#ffae00'],
+      hoverBorderColor: "rgba(234, 236, 244, 1)",
+    }],
+  },
+  options: {
+    maintainAspectRatio: false,
+    tooltips: {
+      backgroundColor: "rgb(255,255,255)",
+      bodyFontColor: "#858796",
+      borderColor: '#dddfeb',
+      borderWidth: 1,
+      xPadding: 15,
+      yPadding: 15,
+      displayColors: false,
+      caretPadding: 10,
+    },
+    legend: {
+      display: false
+    },
+    cutoutPercentage: 80,
+  },
+});
+
+  </script>
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
@@ -22,7 +105,7 @@ include('common/header.php');
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Nombres de chambre libres</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">20</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $chambreLibres;?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-door-open"></i>
@@ -39,7 +122,7 @@ include('common/header.php');
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Nombres de chambres reservés</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">45</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo count($recupReservation);?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-door-closed"></i>
@@ -58,7 +141,7 @@ include('common/header.php');
                       <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Chiffre d'affaire</div>
                       <div class="row no-gutters align-items-center">
                         <div class="col-auto">
-                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">6500€</div>
+                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo $chiffeAffaire;?>€</div>
                         </div>
                       </div>
                     </div>
@@ -79,11 +162,11 @@ include('common/header.php');
                       <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Taux d'occupation</div>
                       <div class="row no-gutters align-items-center">
                         <div class="col-auto">
-                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">60%</div>
+                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo count($recupReservation).'0';?>%</div>
                         </div>
                         <div class="col">
                           <div class="progress progress-sm mr-2">
-                            <div class="progress-bar bg-info" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-info" role="progressbar" style="width: <?php echo count($recupReservation).'0';?>%" aria-valuenow="<?php echo count($recupReservation).'0';?>" aria-valuemin="0" aria-valuemax="100"></div>
                           </div>
                         </div>
                       </div>
