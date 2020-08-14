@@ -18,17 +18,19 @@ array_shift($recupCSV);
 
 $identLogin = null;
 $identPass = null;
+$id = null;
 
 $connexion = false;
 
 foreach($recupCSV as $row){
-    $recupLoginCSV = explode(';', $row)[8];
-    $recupPassCSV = explode(';', $row)[9];
+    $recupLoginCSV = explode(';', $row)[9];
+    $recupPassCSV = explode(';', $row)[10];
 
     if(($recupLogin == $recupLoginCSV) && ($recupPass == $recupPassCSV)){
         //Je definis et mets en sesssion ces informations
         $identLogin = $recupLoginCSV;
         $identPass = $recupPassCSV;
+        $id = explode(';', $row)[0];
         //Passe ne connexion true
         $connexion = true;
     }
@@ -39,6 +41,7 @@ foreach($recupCSV as $row){
 if($connexion == true){
     //Si je peux me connecter alors je creer une variable de session
     $_SESSION['$2y$10$5yV9XVOkQPowxCuywSdSMOO3ciGZYwfl3YkoRSMiFlUCdJcM93UIS'] = 1;
+    $_SESSION['ID'] = $id;
     //Je redirige sur la page d'index
     header('Location: ../view/L&S_HOTEL/index.php');
 }else{
@@ -61,13 +64,14 @@ if($connexion == true){
     $connexion = false;
 
     foreach($recupCSV as $row){
-        $recupLoginCSV = explode(';', $row)[8];
-        $recupPassCSV = explode(';', $row)[9];
+        $recupLoginCSV = explode(';', $row)[9];
+        $recupPassCSV = explode(';', $row)[10];
 
         if(($recupLogin == $recupLoginCSV) && ($recupPass == $recupPassCSV)){
             //Je definis et mets en sesssion ces informations
             $identLogin = $recupLoginCSV;
             $identPass = $recupPassCSV;
+            $id = explode(';', $row)[0];
             //Passe ne connexion true
             $connexion = true;
         }
@@ -76,8 +80,9 @@ if($connexion == true){
     if($connexion == true){
         //Si je peux me connecter alors je creer une variable de session
         $_SESSION['$2y$10$5yV9XVOkQPowxCuywSdSMOO3ciGZYwfl3YkoRSMiFlUCdJcM93UIS'] = 1;
+        $_SESSION['ID'] = $id;
         //Je redirige sur la page d'index
-        header('Location: ../view/L&S_HOTEL/index.php');
+        header('Location: ../view/L&S_HOTEL/admin/admin.php');
     }else{
         header('Location: ../view/L&S_HOTEL/connexion.php');
     }

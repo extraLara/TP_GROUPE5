@@ -13,9 +13,30 @@ $recupLogin = strtolower($_POST['login']);
 $recupPass1 = $_POST['pass1'];
 $recupPass2 = $_POST['pass2'];
 
+//PERMET DE CREER UN ID
+$recupCSV = array();
+//Importation des lignes
+$handle = fopen("../input/Employe.csv", "r");
+for ($i = 0;$row = fgetcsv($handle);$i++) {
+    //Tant que j'ai une ligne, j'ajoute dans mon tableau
+    array_push($recupCSV, $row);
+}
+//Je ferme le fichier
+fclose($handle);
+//Suppression du premier element
+array_shift($recupCSV);
+
+$compteurEmploye = 1;
+
+//Recupere le derneir element
+$recupDerniereElementCSV = end($recupCSV);
+
+if(count($recupCSV) > 0){
+    $compteurEmploye = explode(';', $recupDerniereElementCSV[0])[0] + 1;
+}
 
 //Création du string qui sera integre dans le csv "employe.csv"
-$nouvelleUser = $recupNom.';'.$recupPrenom.';'.$recupDateNaissance.';'.$recupAdresse.';'.$recupVille.';'.$recupCodePostal.';'.$recupTelPortable.';'.$recupAdresseMail.';'.$recupLogin.';'.$recupPass1;
+$nouvelleUser = $compteurEmploye.';'.$recupNom.';'.$recupPrenom.';'.$recupDateNaissance.';'.$recupAdresse.';'.$recupVille.';'.$recupCodePostal.';'.$recupTelPortable.';'.$recupAdresseMail.';'.$recupLogin.';'.$recupPass1;
 
 //inscription dans le fichier CSV 
 $handle = fopen("../input/Employe.csv", "a");

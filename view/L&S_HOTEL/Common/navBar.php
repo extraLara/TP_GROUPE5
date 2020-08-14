@@ -48,7 +48,6 @@
         <ul class="navbar-nav mx-auto">
           <li class="nav-item"> <a class="nav-link" href="index.php">Accueil</a> </li>
           <li class="nav-item"> <a class="nav-link" href="room.php">Réserver</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="about.php">À Propos</a> </li>
           <li class="nav-item"> <a class="nav-link" href="contact.php">Nous Contacter</a> </li>
         </ul>
         <ul class="navbar-nav">

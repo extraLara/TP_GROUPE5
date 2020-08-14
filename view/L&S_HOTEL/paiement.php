@@ -150,8 +150,8 @@
 
                         <!-- Button modal -->
 
-                        <div class="col-md-12"> 
-                            <input type="button" id="validate" value="Payer" class="btn btn-pay ">
+                            <div class="col-md-12"> 
+                              <input type="button" id="validate" value="Payer" class="btn btn-pay ">
                             </div>                            
                         </div>
                     </form>
@@ -177,8 +177,8 @@
                                 </p>
                             </div>
                             <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                            <button type="button" id="espaceBtn" class="btn btn-primary">Mon espace</button><!-- mettre le lien vers espace personnel ! -->
+                              <button type="button" class="btn btn-secondary" id="closeBtn" data-dismiss="modal">Fermer</button>
+                              <a href="reservationCli.php" id="espaceBtn" class="btn btn-primary">Mon espace</a><!-- mettre le lien vers espace personnel ! -->
                             </div>
                         </div>
                         </div>
@@ -194,6 +194,8 @@
 $(document).ready(function(){
 
     $("#infoModal").hide();
+    $("#closeBtn").hide();
+    $("#espaceBtn").hide();
 
     $("#validate" ).click(function() {
         //Récupération
@@ -209,10 +211,12 @@ $(document).ready(function(){
         }else{
             $("#exampleModalLabel").text("Paiement en cours...");
             $("#infoModal").text("Votre paiement d'un montant de "+<?php echo $infoChambre[4];?>+" € a été effectué !");
-            $("#espaceBtn").show();
+            $("#espaceBtn").hide();
             $('#exampleModal').modal('show');
             setTimeout(function() { 
                 $("#infoModal").show();
+                $("#closeBtn").show();
+                $("#espaceBtn").show();
                 $("#loader").hide();
                 $("#exampleModalLabel").text("Paiement accepté...");
             }, 5000);

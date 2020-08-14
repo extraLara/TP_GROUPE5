@@ -17,7 +17,7 @@
                     <br>Si vous souhaitez modifier ou annuler votre réservation, vous pouvez le faire via votre espace personnel. </p>   
                     <br>
                     <br>
-                    <form method="post" action="">
+                    <form method="post" action="../../controller/contactController.php">
                       <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
