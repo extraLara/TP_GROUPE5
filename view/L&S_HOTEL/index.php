@@ -1,33 +1,6 @@
 <?php
   //Inclu la navbar
   include('Common/navBar.php');
-  
-  //Récupération de toutes les chambres
-  $chambre1 = explode(';', $recupCSV[0][0]);
-  array_push($listeChambres, $chambre1);
-
-  $chambre2 = explode(';', $recupCSV[1][0].$recupCSV[1][1]);
-  array_push($listeChambres, $chambre2);
-
-  $chambre3 = explode(';', $recupCSV[2][0]);
-  array_push($listeChambres, $chambre3);
-
-  $chambre4 = explode(';', $recupCSV[3][0]);
-  array_push($listeChambres, $chambre4);
-
-  $chambre5 = explode(';', $recupCSV[4][0]);
-  array_push($listeChambres, $chambre5);
-
-  $chambre6 = explode(';', $recupCSV[5][0]);
-  array_push($listeChambres, $chambre6);
-
-  $chambre7 = explode(';', $recupCSV[6][0]);
-  array_push($listeChambres, $chambre7);
-
-  $chambre8 = explode(';', $recupCSV[7][0]);
-  array_push($listeChambres, $chambre8);
-
-  $compteurImage = 1;
 ?>
 <body>
           <!-- Caroussel -->

@@ -1,5 +1,7 @@
 <?php
   session_start();
+  //Verifiction de la connexion pour changer la navbar
+  $recupSession = $_SESSION['$2y$10$5yV9XVOkQPowxCuywSdSMOO3ciGZYwfl3YkoRSMiFlUCdJcM93UIS'];
 ?>
 <!doctype html>
 <html lang="fr">
@@ -50,8 +52,15 @@
           <li class="nav-item"> <a class="nav-link" href="contact.php">Nous Contacter</a> </li>
         </ul>
         <ul class="navbar-nav">
-          <li class="nav-item"> <a class="nav-link" href="connexion.php">Se connecter</a> </li>
-          <li class="nav-item"> <a class="nav-link" style="color:#EEBB4D" href="inscription.php"><b>S'inscrire</b></a> </li>
+        <?php
+          if($recupSession == 1){
+            echo '<li class="nav-item"> <a class="nav-link" href="profil.php">Mon espace</a> </li>';
+            echo '<li class="nav-item"> <a class="nav-link" style="color:#EEBB4D" href="../../controller/logoutController.php"><b>Deconnexion</b></a> </li>';
+          }else{
+            echo '<li class="nav-item"> <a class="nav-link" href="connexion.php">Se connecter</a> </li>';
+            echo '<li class="nav-item"> <a class="nav-link" style="color:#EEBB4D" href="inscription.php"><b>S\'inscrire</b></a> </li>';
+          }
+        ?>
         </ul>
         </div>
     </nav>
@@ -70,4 +79,31 @@
     fclose($handle);
     //Suppression du premier element
     array_shift($recupCSV);
+
+    //Récupération de toutes les chambres
+    $chambre1 = explode(';', $recupCSV[0][0]);
+    array_push($listeChambres, $chambre1);
+
+    $chambre2 = explode(';', $recupCSV[1][0].$recupCSV[1][1]);
+    array_push($listeChambres, $chambre2);
+
+    $chambre3 = explode(';', $recupCSV[2][0]);
+    array_push($listeChambres, $chambre3);
+
+    $chambre4 = explode(';', $recupCSV[3][0]);
+    array_push($listeChambres, $chambre4);
+
+    $chambre5 = explode(';', $recupCSV[4][0]);
+    array_push($listeChambres, $chambre5);
+
+    $chambre6 = explode(';', $recupCSV[5][0]);
+    array_push($listeChambres, $chambre6);
+
+    $chambre7 = explode(';', $recupCSV[6][0]);
+    array_push($listeChambres, $chambre7);
+
+    $chambre8 = explode(';', $recupCSV[7][0]);
+    array_push($listeChambres, $chambre8);
+
+    $compteurImage = 1;
   ?>
