@@ -52,7 +52,7 @@
                 <div class="carousel-caption d-none d-md-block">
                   <img src="assets/brand/logo.png" alt="" class="img-fluid">
                   <h5><?php echo $chambre1[0];?></h5>
-                  <p>Avec vue sur le green de Golf.</p>
+                  <p>Tarif : <?php echo $chambre1[4];?>€</p>
                 </div>
               </div>
               <div class="carousel-item">
@@ -60,7 +60,7 @@
                 <div class="carousel-caption d-none d-md-block">
                   <img src="assets/brand/logo.png" alt="" class="img-fluid">
                   <h5><?php echo $chambre2[0];?></h5>
-                  <p>Avec vue sur la ville.</p>
+                  <p>Tarif : <?php echo $chambre2[4];?>€</p>
                 </div>
               </div>
               <div class="carousel-item">
@@ -68,7 +68,7 @@
                 <div class="carousel-caption d-none d-md-block">
                   <img src="assets/brand/logo.png" alt="" class="img-fluid">
                   <h5><?php echo $chambre3[0];?></h5>
-                  <p>Avec vue sur la mer.</p>
+                  <p>Tarif : <?php echo $chambre3[4];?>€</p>
                 </div>
               </div>
             </div>
