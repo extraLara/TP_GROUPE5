@@ -105,4 +105,17 @@
     array_push($listeChambres, $chambre8);
 
     $compteurImage = 1;
+
+    $recupReservation = array();
+    //Importation des lignes
+    $handle = fopen("../../input/Reservation.csv", "r");
+    for ($i = 0;$row = fgetcsv($handle);$i++) {
+        //Tant que j'ai une ligne, j'ajoute dans mon tableau
+        array_push($recupReservation, $row);
+    }
+    //Je ferme le fichier
+    fclose($handle);
+    //Suppression du premier element
+    array_shift($recupReservation);
+
   ?>

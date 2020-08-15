@@ -36,28 +36,44 @@
   <div class="section">
     <div class="form-row text-center">
       <div class="row row-cols-1 row-cols-md-4">
-        <?php 
+      <?php 
+          $chambreReserver = array();
+          $toutesLesChambres = array();
           foreach($listeChambres as $row){
-            echo '<div class="col mb-4">';
-            echo '  <div class="card">';
-            echo '    <img src="assets/rooms/room_'.$compteurImage.'.jpg" class="card-img-top" alt="...">';
-            echo '    <div class="card-body">';
-            echo '        <div class="col-12"><h5 class="card-title">'.$chambre1[0].'</h5>';
-            echo '          <p class="card-text">'.$row[0].'<br>'.$row[1].'<br>'.$row[2].'<br>'.$row[3].'<br>';
-           // echo '            Options :';
-            //echo '            <ul>';
-                                /*foreach(explode('|', $row[6]) as $value){
-                                  echo '<p>'.$value.'</p>';
-                                }       */ 
-          //  echo '            </ul>';
-            echo '           <a href="chamber.php?id='.$compteurImage.'" class="btn btn-primary" style="border:none">Reserver</a>';
-            echo '        </div>';
-            echo '    </div>';
-            echo '  </div>';
-            echo '</div>';
+            foreach($recupReservation as $value){
+              if(explode(';', $value[0])[2] == $compteurImage){
+                array_push($chambreReserver,$compteurImage);
+              }
+            }      
+            array_push($toutesLesChambres, $compteurImage);
             //Incremente le compteur a image
             $compteurImage++;
           }
+
+          //Difference entre les chambres resever et libre
+          $chambreLibres = array_diff($toutesLesChambres, $chambreReserver);
+          $compteurImage = 1;
+
+          foreach($listeChambres as $row){
+            foreach($chambreLibres as $value){
+              if($value == $compteurImage){
+                echo '<div class="col mb-4">';
+                echo '  <div class="card">';
+                echo '    <img src="assets/rooms/room_'.$value.'.jpg" class="card-img-top" alt="...">';
+                echo '    <div class="card-body">';
+                echo '        <div class="col-12"><h5 class="card-title">'.$row[0].'</h5>';
+                echo '          <p class="card-text">'.$row[1].'<br>'.$row[2].'<br>'.$row[3].'<br>';
+                echo '           <a href="chamber.php?id='.$value.'" class="btn btn-primary" style="border:none">Reserver</a>';
+                echo '        </div>';
+                echo '    </div>';
+                echo '  </div>';
+                echo '</div>';
+              }
+            }$compteurImage++;
+          }
+         
+
+
         ?>
       </div>
     </div>
