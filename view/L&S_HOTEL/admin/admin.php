@@ -92,7 +92,14 @@ var myPieChart = new Chart(ctx, {
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Dernier rapport</h1>
-            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generer rapport CSV</a>
+            <form action="../../../controller/exportRapportController.php" method="POST">
+              <input type="hidden" name="chambreLibres" value="<?php echo $chambreLibres;?>">
+              <input type="hidden" name="chambreReserve" value="<?php echo count($recupReservation);?>">
+              <input type="hidden" name="chiffreAffaire" value="<?php echo $chiffeAffaire;?>">
+              <input type="hidden" name="tauxOccupation" value="<?php echo count($recupReservation).'0%';?>">
+
+              <input type="submit" value="Générer rapport CSV" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+            </form>
           </div>
 
           <!-- Content Row -->
