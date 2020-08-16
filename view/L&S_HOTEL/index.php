@@ -64,7 +64,6 @@
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="file:///C:/Users/Utilisateur/Desktop/L&S_HOTEL/index.html#">Accueil</a></li>
       <li class="breadcrumb-item"><a href="file:///C:/Users/Utilisateur/Desktop/L&S_HOTEL/room.html">Nos chambres</a></li>
-      <li class="breadcrumb-item"><a href="#">Nos options</a></li>
       
     </ol>
   </nav>
