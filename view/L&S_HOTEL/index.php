@@ -135,9 +135,6 @@
               }
             }$compteurImage++;
           }
-         
-
-
         ?>
       </div>
     </div>

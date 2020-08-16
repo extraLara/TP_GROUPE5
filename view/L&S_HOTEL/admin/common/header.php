@@ -37,6 +37,58 @@ fclose($handle);
 //Suppression du premier element
 array_shift($recupContact);
 
+$recupCSV = array();
+$listeChambres = array();
+//Importation des lignes
+$handle = fopen("../../../input/ListeChambres_V3.csv", "r");
+for ($i = 0;$row = fgetcsv($handle);$i++) {
+    //Tant que j'ai une ligne, j'ajoute dans mon tableau
+    array_push($recupCSV, $row);
+}
+//Je ferme le fichier
+fclose($handle);
+//Suppression du premier element
+array_shift($recupCSV);
+
+//Récupération de toutes les chambres
+$chambre1 = explode(';', $recupCSV[0][0]);
+array_push($listeChambres, $chambre1);
+
+$chambre2 = explode(';', $recupCSV[1][0].$recupCSV[1][1]);
+array_push($listeChambres, $chambre2);
+
+$chambre3 = explode(';', $recupCSV[2][0]);
+array_push($listeChambres, $chambre3);
+
+$chambre4 = explode(';', $recupCSV[3][0]);
+array_push($listeChambres, $chambre4);
+
+$chambre5 = explode(';', $recupCSV[4][0]);
+array_push($listeChambres, $chambre5);
+
+$chambre6 = explode(';', $recupCSV[5][0]);
+array_push($listeChambres, $chambre6);
+
+$chambre7 = explode(';', $recupCSV[6][0]);
+array_push($listeChambres, $chambre7);
+
+$chambre8 = explode(';', $recupCSV[7][0]);
+array_push($listeChambres, $chambre8);
+
+$compteurImage = 1;
+
+$recupReservation = array();
+//Importation des lignes
+$handle = fopen("../../../input/Reservation.csv", "r");
+for ($i = 0;$row = fgetcsv($handle);$i++) {
+    //Tant que j'ai une ligne, j'ajoute dans mon tableau
+    array_push($recupReservation, $row);
+}
+//Je ferme le fichier
+fclose($handle);
+//Suppression du premier element
+array_shift($recupReservation);
+
 ?>
 
 <!DOCTYPE html>
@@ -98,7 +150,7 @@ array_shift($recupContact);
 
       <!-- menu  -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="admin.php" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+        <a class="nav-link collapsed" href="chambres.php" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
           <i class="fas fa-bed"></i>
           <span>Chambres</span>
         </a>
@@ -110,7 +162,7 @@ array_shift($recupContact);
       </li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="admin.php" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+        <a class="nav-link collapsed" href="reservations.php" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
           <i class="fas fa-key"></i>
           <span>Réservations</span>
         </a>

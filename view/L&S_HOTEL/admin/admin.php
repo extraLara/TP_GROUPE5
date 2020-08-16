@@ -59,7 +59,7 @@ var myPieChart = new Chart(ctx, {
   data: {
     labels: ["Libres", "Reservées"],
     datasets: [{
-      data: [<?php echo count($recupIDReservation);?>, <?php echo count($recupChambres);?>],
+      data: [<?php echo $chambreLibres;?>, <?php echo count($recupReservation);?>],
       backgroundColor: ['#082d41', '#eebb4d'],
       hoverBackgroundColor: ['#0b5a85', '#ffae00'],
       hoverBorderColor: "rgba(234, 236, 244, 1)",
@@ -80,7 +80,7 @@ var myPieChart = new Chart(ctx, {
     legend: {
       display: false
     },
-    cutoutPercentage: 80,
+    cutoutPercentage: 100,
   },
 });
 
@@ -205,43 +205,45 @@ var myPieChart = new Chart(ctx, {
                     </tr>
                   </tfoot>
                   <tbody>
-                    <tr>
-                      <td>Libre</td>
-                      <td>Suite</td>                      
-                      <td>400€</td>
-                      <td>150m2</td>
-                      <td>Ocean</td>
+                    <?php 
+                      $chambreReserver = array();
+                      $toutesLesChambres = array();
+                      foreach($listeChambres as $row){
+                        foreach($recupReservation as $value){
+                          if(explode(';', $value[0])[2] == $compteurImage){
+                            echo '<tr>';
+                            echo '<td>Réservé</td>';
+                            echo '<td>'.$row[0].'</td>';
+                            echo '<td>'.$row[4].' €</td>';
+                            echo '<td>'.$row[1].'</td>';
+                            echo '<td>'.$row[2].'</td>';
+                            echo '</tr>';
+                            array_push($chambreReserver,$compteurImage);
+                          }
+                        }      
+                        array_push($toutesLesChambres, $compteurImage);
+                        //Incremente le compteur a image
+                        $compteurImage++;
+                      }
 
-                    </tr>
-                    <tr>                      
-                      <td>Reservée</td>
-                      <td>Double deluxe</td>
-                      <td>250€</td>
-                      <td>63m2</td>
-                      <td>Green</td>
-                    </tr>
-                    <tr>
-                      <td>Libre</td>
-                      <td>Suite</td>
-                      <td>360€</td>
-                      <td>89m2</td>
-                      <td>Foret</td>
-                    </tr>
-                    <tr>
-                      <td>Libre</td>
-                      <td>Junior</td>
-                      <td>420€</td>
-                      <td>64m2</td>
-                      <td>Ocean</td>
-                    </tr>
-                    <tr>
-                      <td>Reservée</td>
-                      <td>Simple</td>
-                      <td>390€</td>
-                      <td>30m2</td>
-                      <td>Foret</td>
-                    </tr>
+                      //Difference entre les chambres resever et libre
+                      $chambreLibres = array_diff($toutesLesChambres, $chambreReserver);
+                      $compteurImage = 1;
 
+                      foreach($listeChambres as $row){
+                        foreach($chambreLibres as $value){
+                          if($value == $compteurImage){
+                            echo '<tr>';
+                            echo '<td>Libre</td>';
+                            echo '<td>'.$row[0].'</td>';
+                            echo '<td>'.$row[4].' €</td>';
+                            echo '<td>'.$row[1].'</td>';
+                            echo '<td>'.$row[2].'</td>';
+                            echo '</tr>';
+                          }
+                        }$compteurImage++;
+                      }
+                    ?>
                   </tbody>
                 </table>
 
