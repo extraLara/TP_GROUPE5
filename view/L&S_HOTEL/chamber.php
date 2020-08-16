@@ -27,7 +27,6 @@
                     <img class="img-fluid d-block mx-auto" src="assets/rooms/room_7.jpg" style="border-radius:5px">
                 </div>
                 <div class="col-md-6 p-3 shadow-lg" style="border-radius:5px">
-                    <form action="../../controller/paiementController.php" method="POST">
                         <i>Description de la chambre</i><p><br><b>Superficie :</b> <?php echo $infoChambre[1];?><br><b> Type de chambre :</b>  <?php echo $infoChambre[0];?><br><b> Vue sur :</b>  <?php echo $infoChambre[2];?><br>
                         <b>  Options :</b>  <br>
                         
@@ -44,18 +43,47 @@
                                     &nbsp;
                                 </td>
                                 <td>
-                                    <input type="hidden" name="idChambre" value='<?php echo $_GET['id'];?>'>
-                                    <input type="hidden" name="prixChambre" value='<?php echo $infoChambre[4];?>'>
-                                    <input type="submit" class="btn btn-primary text-right" style="border:none" value="Réserver">
+                                    <button type="button" class="btn btn-primary" style="border:none;" data-toggle="modal" data-target="#exampleModal">Réserver</button>                                
                                 </td>
                             </tr>
                         </table>
-                    </form>
+                    
                 </div>
             </div>
         </div>
     </div>
 </body>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirmer vos dates</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="../../controller/paiementController.php" method="POST">
+      <div class="modal-body">
+        <div class="form-group">
+            <label>Réserver du </label>
+            <input type="date" class="form-control" name="dateDu" required>
+        </div>
+        <div class="form-group">
+            <label>Réserver au </label>
+            <input type="date" class="form-control" name="dateAu" required>
+        </div>    
+        <input type="hidden" name="idChambre" value='<?php echo $_GET['id'];?>'>
+        <input type="hidden" name="prixChambre" value='<?php echo $infoChambre[4];?>'>
+    </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+        <input type="submit" class="btn btn-primary" style="border:none;" value="Procéder au paiement">
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
 
 <?php
   //Inclu le footer

@@ -37,6 +37,7 @@ array_shift($recupUser);
             <th>Superificie</th>
             <th>Vue</th>
             <th>Client</th>
+            <th>Date</th>
             <th>Supprimer</th>
           </tr>
         </thead>
@@ -56,6 +57,7 @@ array_shift($recupUser);
                                 echo '<td>'.explode(";", $key[0])[1].' '.explode(";", $key[0])[2].'</td>';
                             }
                         }
+                        echo '<td>Du '.explode(';', $value[0])[3].' au '.explode(';', $value[0])[4].'</td>';
                         echo '<td><a href="../../../controller/annulationReservationEmployeController.php?idChambre='.$compteurImage.'">Annuler</a>';
                         echo '</tr>';
                       }

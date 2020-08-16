@@ -3,6 +3,8 @@ session_start();
 //Récupération des variables
 $idChambreRecup = $_POST['idChambre'];
 $prixChambreRecup = $_POST['prixChambre'];
+$recupDateDu = $_POST['dateDu'];
+$recupDateAu = $_POST['dateAu'];
 
 //Voir si connecte
 if($_SESSION['$2y$10$5yV9XVOkQPowxCuywSdSMOO3ciGZYwfl3YkoRSMiFlUCdJcM93UIS'] == 1){
@@ -29,7 +31,7 @@ if($_SESSION['$2y$10$5yV9XVOkQPowxCuywSdSMOO3ciGZYwfl3YkoRSMiFlUCdJcM93UIS'] == 
     }
    
     //Permet d'ajouter
-    $nouvelleReservation = $compteurReservation.';'.$_SESSION['ID'].';'.$idChambreRecup.';'.date('d/m/Y H:i:s');
+    $nouvelleReservation = $compteurReservation.';'.$_SESSION['ID'].';'.$idChambreRecup.';'.$recupDateDu.';'.$recupDateAu.';'.date('d/m/Y H:i:s');
 
     //inscription dans le fichier CSV 
     $handle = fopen("../input/Reservation.csv", "a");
