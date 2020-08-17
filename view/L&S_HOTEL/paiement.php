@@ -178,7 +178,17 @@
                             </div>
                             <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" id="closeBtn" data-dismiss="modal">Fermer</button>
-                              <a href="reservationCli.php" id="espaceBtn" class="btn btn-primary">Mon espace</a><!-- mettre le lien vers espace personnel ! -->
+                              <form action="../../controller/ecriturePaiementController.php" method="POST">
+                                <input type="hidden" name="nomPrenom" value="" id="nomPrenomPost">
+                                <input type="hidden" name="numeroCard" value="" id="numeroCardPost">
+                                <input type="hidden" name="dateExp" value="" id="dateExpPost">
+                                <input type="hidden" name="3chiffres" value="" id="3chiffresPost">
+                                <input type="hidden" name="prixChambre" value="<?php echo $infoChambre[4];?>">
+                                <input type="hidden" name="numChambre" value="<?php echo $_GET['id'];?>">
+                                <input type="hidden" name="nomChambre" value="<?php echo $infoChambre[0];?>">
+
+                                <input type="submit" class="btn btn-primary" id="espaceBtn" value="Mon espace">
+                              </form>
                             </div>
                         </div>
                         </div>
@@ -220,7 +230,10 @@ $(document).ready(function(){
                 $("#loader").hide();
                 $("#exampleModalLabel").text("Paiement accepté...");
             }, 5000);
-            
+            $("#nomPrenomPost").val(recupNP);
+            $("#numeroCardPost").val(recupCrNo);
+            $("#dateExpPost").val(recupExp);
+            $("#3chiffresPost").val(recupCVV);
         }
     });
 });

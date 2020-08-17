@@ -65,7 +65,7 @@
                                                 &nbsp;
                                             </td>
                                             <td>
-                                                <a class="btn btn-primary text-right" style="border:none" href="#">Télécharger Facture (PDF)</a>
+                                                <a class="btn btn-primary text-right" style="border:none" target="_blank" href="../../controller/createPDFFacture.php?idChambre='.$compteurChambre.'">Télécharger Facture (PDF)</a>
                                             </td>
                                         </tr>
                                     </table>';
