@@ -68,7 +68,7 @@
     </ol>
   </nav>
 
-  <!-- bouton filtrer centrer-->
+  <!-- bouton filtrer centrer
   <br>
   <br>
   <div class="form-row text-center">
@@ -92,7 +92,7 @@
       </div>
     </div>
  </div>
-
+-->
 
   <!-- Rooms -->
 
