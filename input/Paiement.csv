@@ -1,3 +1,4 @@
 ID;NomPrenom;NumCarte;DateExp;CVV;NomChambre;NumChambre;PrixChambre;DateEcriture
-"1;James bond;0101-0101-0101-0101;12/99;123;Chambre Vue Océan;3;350;16/08/2020 11:39:41"
-
+"3;James bond;0101-0101-0101-0101;12/93;123;Suite Executive;6;550;17/08/2020 06:03:57"
+"4;personne;1212-1212-1212-1212;12/12;123;Suite Ambassadeur;7;1650;17/08/2020 06:04:45"
+"5;lara l;3434-3434-3434-3434;06/04;455;Suite CDA;5;450;17/08/2020 06:05:55"

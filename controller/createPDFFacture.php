@@ -87,5 +87,5 @@ $pdf->AddPage();
 $pdf->writeHTML($html);
 
 //Close and output PDF document
-$pdf->Output('example_006.pdf', 'I'); 
+$pdf->Output('facture.pdf', 'I'); 
 ?>

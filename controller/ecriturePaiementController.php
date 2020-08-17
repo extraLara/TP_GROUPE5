@@ -1,5 +1,7 @@
 <?php
 session_start();
+//inclue le php mail
+require('../classe/phpMailer/src/PHPMailer.php');
 //Récupération des fichiers
 $recupNP = $_POST['nomPrenom'];
 $recupCrNo = $_POST['numeroCard'];
@@ -239,7 +241,7 @@ div[style*="margin: 16px 0;"] {
 </html>';
 
 
-$this->envoiMail = new PHPmailer();
+/*$this->envoiMail = new PHPmailer();
 //Configuration du mail
 $this->envoiMail->isSMTP(); // Paramétrer le Mailer pour utiliser SMTP 
 $this->envoiMail->Host = 'SMTP.office365.com'; // Spécifier le serveur SMTP
@@ -257,12 +259,12 @@ $this->envoiMail->Subject = $sujet;
 $this->envoiMail->Body = $body;
 
 try{
-    $this->envoiMail->send();
+    //$this->envoiMail->send();
 }catch(Exception $e){
     var_dump($e->getMessage());
-}
+}*/
 
 //redirection sur la page de connexion
-//header('Location: ../view/L&S_HOTEL/reservationCli.php');
+header('Location: ../view/L&S_HOTEL/reservationCli.php');
 
 ?>
