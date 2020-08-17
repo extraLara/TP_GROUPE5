@@ -96,7 +96,7 @@ var myPieChart = new Chart(ctx, {
               <input type="hidden" name="chambreLibres" value="<?php echo $chambreLibres;?>">
               <input type="hidden" name="chambreReserve" value="<?php echo count($recupReservation);?>">
               <input type="hidden" name="chiffreAffaire" value="<?php echo $chiffeAffaire;?>">
-              <input type="hidden" name="tauxOccupation" value="<?php echo count($recupReservation).'0%';?>">
+              <input type="hidden" name="tauxOccupation" value="<?php echo $res = count($recupReservation) +1 ; echo $res.'0';?>%">
 
               <input type="submit" value="Générer rapport CSV" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
             </form>
@@ -169,7 +169,7 @@ var myPieChart = new Chart(ctx, {
                       <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Taux d'occupation</div>
                       <div class="row no-gutters align-items-center">
                         <div class="col-auto">
-                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo count($recupReservation).'0';?>%</div>
+                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php $res = count($recupReservation) +1 ; echo $res.'0';?>%</div>
                         </div>
                         <div class="col">
                           <div class="progress progress-sm mr-2">
