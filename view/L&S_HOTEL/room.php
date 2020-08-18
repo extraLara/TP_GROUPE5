@@ -5,7 +5,7 @@
 <body>
 
 
-  <!-- bouton filtrer centrer-->
+  <!-- bouton filtrer centrer
   <br>
   <br>
   <div class="form-row text-center">
@@ -28,7 +28,7 @@
         </label>
       </div>
     </div>
- </div>
+ </div>-->
 
 
   <!-- Rooms -->
