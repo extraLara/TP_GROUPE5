@@ -46,9 +46,9 @@
                         if($value == $compteurChambre){
                             echo '<div class="row pt-5">';
                                 echo '<div class="col-md-6 p-3">';
-                                    echo '<img class="img-fluid d-block" src="assets/rooms/room_'.$compteurChambre.'.jpg" width="1500" style="border-radius:15px">';
+                                    echo '<img class="img-other" src="assets/rooms/room_'.$compteurChambre.'.jpg" style="border-radius:0.25em">';
                                 echo '</div>';
-                                echo '<div class="col-md-6 p-3 shadow-lg" style="border-radius:15px">';
+                                echo '<div class="col-md-6 p-3 shadow-lg" style="border-radius:0.35em">';
                                     echo '<i>Description de la chambre</i><p><br>Superficie : '.$row[1].'<br>Type de chambre : '.$row[0].'<br>Vue sur : '.$row[2].'<br>Options :';
                                     echo '<ul>';
                                         foreach(explode('|', $row[6]) as $value){
