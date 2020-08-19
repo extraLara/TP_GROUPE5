@@ -23,6 +23,9 @@
       }
   }
 
+//redirection du client vers la page identification si resa aprés 20secondes 
+header('refresh:20;url=http://localhost/TP_GROUPE5/view/L&S_HOTEL/connexion.php');
+
 ?>
 <body>
     <div class="py-5 text-center" style="background-color: white !important">
