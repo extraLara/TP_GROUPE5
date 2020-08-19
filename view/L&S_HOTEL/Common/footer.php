@@ -8,7 +8,7 @@
           <div class="col-md-3 col-sm-12">
             <div class="footer-widget">
               <div class="widget-about">
-                <img src="assets/brand/logo.png" width="200" height="140"  class="img">
+                <img src="assets/brand/logo.png" width="240" height="130"  class="img">
                 <p>Hotel Spa 4 étoiles.
                   Chambres et suites de luxe avec vue sur mer, forets et green.
                 </p>
