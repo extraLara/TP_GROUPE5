@@ -98,6 +98,13 @@ ul.nav a:hover {
     padding-bottom: 0;
 } 
 
+.img-other{
+    max-width: 100%; 
+    height: auto;
+    float: none;
+    margin-top: -12px;
+    padding-bottom: 0;
+}
   
 /* section rooms */
 .section {
