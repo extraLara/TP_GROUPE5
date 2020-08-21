@@ -22,7 +22,7 @@
   foreach($recupCSVReservations as $row){
       if(explode(';', $row[0])[1] == $_SESSION['ID']){
           array_push($tabChambresClient, explode(';', $row[0])[2]);
-          array_push($tabDateReservationsChambresClient, explode(';', $row[0])[2].';'.explode(';', $row[0])[3].' '.explode(';', $row[0])[4]);
+          array_push($tabDateReservationsChambresClient, explode(';', $row[0])[2] .';'. date("d/m/Y", strtotime(explode(';', $row[0])[3])).' au '. date("d/m/Y", strtotime(explode(';', $row[0])[4])));
       }
   }
 
@@ -84,12 +84,12 @@
                                     echo '<img class="img-other" src="assets/rooms/room_'.$compteurChambre.'.jpg" style="border-radius:0.25em">';
                                 echo '</div>';
                                 echo '<div class="col-md-6 p-3 shadow-lg" style="border-radius:0.35em">';
-                                foreach($tabDateReservationsChambresClient as $row){
-                                    if(explode(';', $row)[0] == $value){
-                                        echo 'Date de réservation : '.explode(';', $row)[1];
+                                foreach($tabDateReservationsChambresClient as $key){
+                                    if(explode(';', $key)[0] == $value){
+                                        echo 'Date de réservation : '.explode(';', $key)[1];
                                     }
                                 }
-                                    echo '<br><i>Description de la chambre</i><p><br>Superficie : '.$row[1].'<br>Type de chambre : '.$row[0].'<br>Vue sur : '.$row[2].'<br>Options :';
+                                    echo '<br><i><br>Description de la chambre</i><p><br>Superficie : '.$row[1].'<br>Type de chambre : '.$row[0].'<br>Vue sur : '.$row[2].'<br>Options :';
                                     echo '<ul>';
                                         foreach(explode('|', $row[6]) as $value){
                                         echo '<p>'.$value.'</p>';
@@ -100,14 +100,14 @@
                                         <tr>
                                             <td>
                                                 <a class="btn btn-primary text-right" href="../../controller/annulationReservationController.php?idChambre='.$compteurChambre.'" style="border:none">Annuler</a>
-                                            </td>
+                                            &nbsp;</td>
                                             <td>
-                                                &nbsp;
+                                             
                                             </td>
-                                            <td>
+                                            <td>   
                                                 <a class="btn btn-primary" data-toggle="modal" data-target="#modal'.$compteurChambre.'">Modifier la date</a>
                                             </td>
-                                            <td>
+                                            <td>&nbsp;
                                                 <a class="btn btn-primary text-right" style="border:none" target="_blank" href="../../controller/createPDFFacture.php?idChambre='.$compteurChambre.'">Télécharger Facture (PDF)</a>
                                             </td>
                                         </tr>

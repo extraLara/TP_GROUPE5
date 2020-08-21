@@ -1,214 +1,56 @@
-.clearfix:after {
-  content: "";
-  display: table;
-  clear: both;
-}
 
+body 
+table,
+td,
 a {
-  color: #eebb4d ;
-  text-decoration: none;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
 }
 
-body {
-  position: relative;
-  width: 21cm;  
-  height: 29.7cm; 
-  margin: 0 auto; 
-  color: #eebb4d;
-  /* background-image: url(background.jpg) ;  */
-  background-color: #FFFFFF;
-  font-family: 'Abel', sans-serif;
-  font-size: 14px; 
- }
+table,
 
-header {
-  padding: 10px 0;
-  margin-bottom: 20px;
-  border-bottom: 1px solid #eebb4d;
+img {
+    -ms-interpolation-mode: bicubic;
 }
 
-#logo {
-  float: left;
-  margin-top: 8px;
-}
-
-#logo img {
-  height: 150px;
-}
-
-.logoName{
-  font-family: "Abril Display";
-
-}
-#company {
-  float: right;
-  text-align: right;
-}
-
-
-#details {
-  margin-bottom: 50px;
-}
-
-#client {
-  padding-left: 6px;
-  border-left: 6px solid #eebb4d ;
-  float: left;
-}
-
-#client .to {
-  color: white;
-}
-
-h2.name {
-  font-size: 1.4em;
-  font-weight: normal;
-  margin: 0;
-  font-family:abel;
-}
-
-#invoice {
-  float: right;
-  text-align: right;
-  font-family: 'Abril display';
-
-}
-
-#invoice h1 {
-  color: #eebb4d ;
-  font-size: 2.4em;
-  line-height: 1em;
-  font-weight: normal;
-  margin: 0  0 10px 0;
-}
-
-#invoice .date {
-  font-size: 1.1em;
-  color: #eebb4d;
-  
+img {
+    border: 0;
+    height: auto;
+    line-height: 100%;
+    outline: none;
+    text-decoration: none;
 }
 
 table {
-  width: 100%;
-  border-collapse: collapse;
-  border-spacing: 0;
-  margin-bottom: 20px;
+    border-collapse: collapse !important;
 }
 
-table th,
-table td {
-  padding: 20px;
-  background: #082d41;
-  text-align: center;
-  border-bottom: 1px solid #FFFFFF;
-  color:#eebb4d;
+body {
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
 }
 
-table th {
-  white-space: nowrap;        
-  font-weight: normal;
-  font-family: 'Abril Display';
-
+a[x-apple-data-detectors] {
+    color: inherit !important;
+    text-decoration: none !important;
+    font-size: inherit !important;
+    font-family: inherit !important;
+    font-weight: inherit !important;
+    line-height: inherit !important;
 }
 
-table td {
-  text-align: right;
+@media screen and (max-width: 480px) {
+    .mobile-hide {
+        display: none !important;
+    }
+
+    .mobile-center {
+        text-align: center !important;
+    }
 }
 
-table td h3{
-  color: #082d41 ;
-  font-size: 1.2em;
-  font-weight: normal;
-  margin: 0 0 0.2em 0;
-  border-top: 1px solid #082d41; 
-
+div[style*="margin: 16px 0;"] {
+    margin: 0 !important;
 }
-
-table .no {
-  color: #eebb4d;
-  font-size: 1.6em;
-  background: #082d41 ;
-}
-
-table .desc {
-  text-align: left;
-}
-
-table .unit {
-  background: #eebb4d ;
-  color:white;
-}
-
-table .qty {
-}
-
-table .total {
-  background: #082d41 ;
-  color: #eebb4d;
-}
-
-table td.unit,
-table td.qty,
-table td.total {
-  font-size: 1.2em;
-}
-
-table tbody tr:last-child td {
-  border: none;
-}
-
-table tfoot td {
-  padding: 10px 20px;
-  background: #eebb4d;
-  border-bottom: none;
-  font-size: 1.2em;
-  white-space: nowrap; 
-  border-top: 1px solid #082d41; 
-  border-right: 1px solid #082d41;
-  color:#082d41;
-}
-
-table tfoot tr:first-child td {
-  border-top: none; 
-  
-}
-
-table tfoot tr:last-child td {
-  color: #082d41 ;
-  font-size: 1.4em;
-  border-top: 1px solid #082d41 ; 
-  border-right: 1px solid #082d41;
-
-}
-
-table tfoot tr td:first-child {
-  border: none;
-  
-}
-
-#thanks{
-  font-size: 2em;
-  margin-bottom: 50px;
-  font-family: 'Abril display';
-}
-
-#notices{
-  padding-left: 6px;
-  border-left: 6px solid #eebb4d ;  
-}
-
-#notices .notice {
-  font-size: 1.2em;
-}
-
-footer {
-  color: #777777;
-  width: 100%;
-  height: 30px;
-  position: absolute;
-  bottom: 0;
-  border-top: 1px solid #eebb4d ;
-  padding: 8px 0;
-  text-align: center;
-}
-

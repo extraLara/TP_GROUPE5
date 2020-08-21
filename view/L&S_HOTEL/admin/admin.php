@@ -36,7 +36,11 @@ foreach($recupReservation as $row){
   $recupIDReservation = explode(';', $row[0])[2];
   foreach($recupChambres as $value){
     if($compteurChambres == $recupIDReservation){
-      $chiffeAffaire += explode(';', $value[0])[4];
+      if($compteurChambres == 2){
+        $chiffeAffaire +=  explode(';', $value[1])[2];
+      }else{
+        $chiffeAffaire +=  explode(';', $value[0])[4];
+      }
     }
     $compteurChambres++;
   }
@@ -50,43 +54,7 @@ $chambreLibres = count($recupChambres) - count($recupReservation);
 <script>
 //Ajout la classe active
 $("#home").addClass("active");
-// Set new default font family and font color to mimic Bootstrap's default styling
-Chart.defaults.global.defaultFontFamily = 'abel', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
-Chart.defaults.global.defaultFontColor = '#858796';
-
-// Pie Chart 
-var ctx = document.getElementById("myPieChart");
-var myPieChart = new Chart(ctx, {
-  type: 'doughnut',
-  data: {
-    labels: ["Libres", "Reservées"],
-    datasets: [{
-      data: [<?php echo $chambreLibres;?>, <?php echo count($recupReservation);?>],
-      backgroundColor: ['#082d41', '#eebb4d'],
-      hoverBackgroundColor: ['#0b5a85', '#ffae00'],
-      hoverBorderColor: "rgba(234, 236, 244, 1)",
-    }],
-  },
-  options: {
-    maintainAspectRatio: false,
-    tooltips: {
-      backgroundColor: "rgb(255,255,255)",
-      bodyFontColor: "#858796",
-      borderColor: '#dddfeb',
-      borderWidth: 1,
-      xPadding: 15,
-      yPadding: 15,
-      displayColors: false,
-      caretPadding: 10,
-    },
-    legend: {
-      display: false
-    },
-    cutoutPercentage: 100,
-  },
-});
-
-  </script>
+</script>
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
@@ -309,3 +277,42 @@ var myPieChart = new Chart(ctx, {
 //Inclu le footer
 include('common/footer.php');
 ?>
+
+<script>
+  // Set new default font family and font color to mimic Bootstrap's default styling
+Chart.defaults.global.defaultFontFamily = 'abel', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+Chart.defaults.global.defaultFontColor = '#858796';
+
+// Pie Chart 
+var ctx = document.getElementById("myPieChart");
+var myPieChart = new Chart(ctx, {
+  type: 'doughnut',
+  data: {
+    labels: ["Reservées", "Libres"],
+    datasets: [{
+      data: [<?php echo count($chambreReserver);?>, <?php echo count($chambreLibres);?>],
+      backgroundColor: ['#082d41', '#eebb4d'],
+      hoverBackgroundColor: ['#0b5a85', '#ffae00'],
+      hoverBorderColor: "rgba(234, 236, 244, 1)",
+    }],
+  },
+  options: {
+    maintainAspectRatio: false,
+    tooltips: {
+      backgroundColor: "rgb(255,255,255)",
+      bodyFontColor: "#858796",
+      borderColor: '#dddfeb',
+      borderWidth: 1,
+      xPadding: 15,
+      yPadding: 15,
+      displayColors: false,
+      caretPadding: 10,
+    },
+    legend: {
+      display: false
+    },
+    cutoutPercentage: 80,
+  },
+});
+
+</script>

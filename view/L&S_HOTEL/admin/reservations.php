@@ -94,7 +94,7 @@ $("#reservations").addClass("active");
                                 echo '<td>'.explode(";", $key[0])[1].' '.explode(";", $key[0])[2].'</td>';
                             }
                         }
-                        echo '<td>Du '.explode(';', $value[0])[3].' au '.explode(';', $value[0])[4].'</td>';
+                        echo '<td>Du '.date("d/m/Y", strtotime(explode(';', $value[0])[3])).' au '.date("d/m/Y", strtotime(explode(';', $value[0])[4])).'</td>';
                         echo '<td><a href="../../../controller/annulationReservationEmployeController.php?idChambre='.$compteurImage.'">Annuler</a></td>';
                         echo '<td><a href="#" data-toggle="modal" data-target="#modalReserEdit'.$compteurImage.'">Modifier</a></td>';
                         echo '</tr>';

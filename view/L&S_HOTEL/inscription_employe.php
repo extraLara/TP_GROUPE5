@@ -52,7 +52,7 @@
             <div class="form-group">
                <!-- Ajout d'un pattern pour obligé l'utilisateur a rentrée un log comportant 10chiffres -->
               <h5 class="text-left">Login</h5>
-              <input type="text" class="form-control" placeholder="Merci d'entrer un login commençant par GH- suivi de 3 chiffres" pattern="GH-   " minlength="6" maxlength="6" size="6" name="login">
+              <input type="text" class="form-control" placeholder="Merci d'entrer un login commençant par GH- suivi de 3 chiffres" pattern="GH-..." minlength="6" maxlength="6" size="6" name="login">
             </div>
 
             <div class="form-group mb-3"> 
