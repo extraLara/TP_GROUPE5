@@ -62,11 +62,11 @@
                                         <div class="modal-body">
                                         <div class="form-group">
                                             <label>Réserver du </label>
-                                            <input type="date" class="form-control" name="dateDu" required>
+                                            <input type="date" min="'.date('Y-m-d').'" class="form-control" name="dateDu" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Réserver au </label>
-                                            <input type="date" class="form-control" name="dateAu" required>
+                                            <input type="date" min="'.date('Y-m-d').'" class="form-control" name="dateAu" required>
                                         </div>    
                                         <input type="hidden" name="idChambre" value='.$compteurChambre.'>
                                     </div>
@@ -105,7 +105,7 @@
                                              
                                             </td>
                                             <td>   
-                                                <a class="btn btn-primary" data-toggle="modal" data-target="#modal'.$compteurChambre.'">Modifier la date</a>
+                                                <a class="btn btn-primary" style="border:none" data-toggle="modal" data-target="#modal'.$compteurChambre.'">Modifier la date</a>
                                             </td>
                                             <td>&nbsp;
                                                 <a class="btn btn-primary text-right" style="border:none" target="_blank" href="../../controller/createPDFFacture.php?idChambre='.$compteurChambre.'">Télécharger Facture (PDF)</a>

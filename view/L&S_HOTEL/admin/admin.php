@@ -178,9 +178,6 @@ $("#home").addClass("active");
                       <th>Prix</th>
                       <th>Superficie</th>
                       <th>Vue</th>
-                      <th>Agir</th>
-
-
                     </tr>
                   </tfoot>
                   <tbody>

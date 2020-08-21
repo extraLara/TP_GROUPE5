@@ -67,11 +67,11 @@
       <div class="modal-body">
         <div class="form-group">
             <label>Réserver du </label>
-            <input type="date" class="form-control" name="dateDu" required>
+            <input type="date" min="<?php echo date('Y-m-d');?>" class="form-control" name="dateDu" required>
         </div>
         <div class="form-group">
             <label>Réserver au </label>
-            <input type="date" class="form-control" name="dateAu" required>
+            <input type="date" min="<?php echo date('Y-m-d');?>" class="form-control" name="dateAu" required>
         </div>    
         <input type="hidden" name="idChambre" value='<?php echo $_GET['id'];?>'>
         <input type="hidden" name="prixChambre" value='<?php echo $infoChambre[4];?>'>
