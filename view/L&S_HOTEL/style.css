@@ -117,7 +117,11 @@ ul.nav a:hover {
 /* redimensionnement des img card */
 .card-img-top {
     width: 100%;
+<<<<<<< HEAD
     height: 150px;
+=======
+    height: 20vh;
+>>>>>>> 1cb6d1c046c1f6ff109098ea7132dae961518542
     object-fit: fill;
 }
 
