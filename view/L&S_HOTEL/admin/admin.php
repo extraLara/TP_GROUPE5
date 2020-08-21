@@ -48,6 +48,8 @@ $chambreLibres = count($recupChambres) - count($recupReservation);
 ?>
 
 <script>
+//Ajout la classe active
+$("#home").addClass("active");
 // Set new default font family and font color to mimic Bootstrap's default styling
 Chart.defaults.global.defaultFontFamily = 'abel', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
 Chart.defaults.global.defaultFontColor = '#858796';
@@ -208,6 +210,8 @@ var myPieChart = new Chart(ctx, {
                       <th>Prix</th>
                       <th>Superficie</th>
                       <th>Vue</th>
+                      <th>Agir</th>
+
 
                     </tr>
                   </tfoot>
@@ -277,10 +281,10 @@ var myPieChart = new Chart(ctx, {
                   </div>
                   <div class="mt-4 text-center small">
                     <span class="mr-2">
-                      <i class="fas fa-circle text-primary"></i> Libres
+                      <i class="fas fa-circle text-primary"></i> Reservéés
                     </span>
                     <span class="mr-2">
-                      <i class="fas fa-circle text-success"></i> Reservéés
+                      <i class="fas fa-circle text-success"></i> Libres
                     </span>
                   </div>
                 </div>

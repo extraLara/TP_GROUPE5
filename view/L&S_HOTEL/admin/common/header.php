@@ -100,13 +100,20 @@ array_shift($recupReservation);
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
+  
+  <!-- Bootstrap core JavaScript-->
+  <script src="jquery/jquery.min.js"></script>
 
   <title>L&S Hotel & Spa - Gestion hotel</title>
 
   <!-- fonts-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link href="fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
-
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
   <!-- css-->
   <link href="admin.css" rel="stylesheet">
   
@@ -134,7 +141,7 @@ array_shift($recupReservation);
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
+      <li class="nav-item" id="home">
         <a class="nav-link" href="admin.php">
           <i class="fas fa-chart-pie"></i>
           <span>Tableau de bord</span></a>
@@ -149,26 +156,26 @@ array_shift($recupReservation);
       </div>
 
       <!-- menu  -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="chambres.php" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+      <li class="nav-item" id="chambres">
+        <a class="nav-link collapsed" href="chambres.php" data-toggle="collapse" data-target="#collapseUtilities1" aria-expanded="true" aria-controls="collapseUtilities">
           <i class="fas fa-bed"></i>
           <span>Chambres</span>
         </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+        <div id="collapseUtilities1" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="tables.php"><i class="fas fa-door-open"></i> Disponibiltés</a>
+            <a class="collapse-item" href="chambres.php"><i class="fas fa-door-open"></i> Disponibilités</a>
           </div>
         </div>
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="reservations.php" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+      <li class="nav-item" id="reservations">
+        <a class="nav-link collapsed" href="reservations.php" data-toggle="collapse" data-target="#collapseUtilities2" aria-expanded="true" aria-controls="collapseUtilities">
           <i class="fas fa-key"></i>
           <span>Réservations</span>
         </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+        <div id="collapseUtilities2" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="action.php"><i class="fas fa-edit"></i> Actions</a>
+            <a class="collapse-item" href="reservations.php"><i class="fas fa-edit"></i> Actions</a>
           </div>
         </div>
       </li>

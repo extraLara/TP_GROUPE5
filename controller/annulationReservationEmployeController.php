@@ -35,7 +35,7 @@
 
     $reservationSupprimer = null;
     foreach($recupCSV as $row){
-        if((explode(';', $row[0])[1] == $_SESSION['ID']) && (explode(';', $row[0])[2] == $recupIDChambre)){
+        if(/*(explode(';', $row[0])[1] == $_SESSION['ID']) &&*/ (explode(';', $row[0])[2] == $recupIDChambre)){
             deleteLineInFile("../input/Reservation.csv", $row[0]);
         }
     }

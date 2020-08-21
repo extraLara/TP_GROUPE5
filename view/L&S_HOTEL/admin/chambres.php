@@ -1,8 +1,23 @@
-<?php 
+<?php
 //Appel de la navbar
 include('common/header.php');
+//Récupération des utilisateurs
+$recupUser = array();
+//Importation des lignes
+$handle = fopen("../../../input/User.csv", "r");
+for ($i = 0;$row = fgetcsv($handle);$i++) {
+    //Tant que j'ai une ligne, j'ajoute dans mon tableau
+    array_push($recupUser, $row);
+}
+//Je ferme le fichier
+fclose($handle);
+//Suppression du premier element
+array_shift($recupUser);
 ?>
-
+<script>
+//Ajout la classe active
+$("#chambres").addClass("active");
+</script>
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
@@ -25,11 +40,13 @@ include('common/header.php');
             <th>Prix</th>
             <th>Superficie</th>
             <th>Vue</th>
+            <th>Nombre chambre libre</th>
+            <th>Réserver une chambre</th>
           </tr>
         </thead>
 
         <tbody>
-            <?php 
+            <?php
                 $chambreReserver = array();
                 $toutesLesChambres = array();
                 foreach($listeChambres as $row){
@@ -39,6 +56,49 @@ include('common/header.php');
                     }
                   }      
                   array_push($toutesLesChambres, $compteurImage);
+                  //CREATION DU MODAL SELON LA CHAMBRE 
+                  echo '
+                  <div class="modal fade" id="modal'.$compteurImage.'" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Confirmer vos dates</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <form action="../../../controller/ajouterChambresLibreController.php" method="POST">
+                        <div class="modal-body">
+                          <div class="form-group">
+                            <label>Selectionner le client</label>
+                            <select name="client" class="form-control">
+                              ';
+                                foreach($recupUser as $row){
+                                  echo '<option value="'.explode(";", $row[0])[0].'">'.explode(";", $row[0])[1].' '.explode(";", $row[0])[2].'</option>';
+                                }
+                              echo '
+                            </select>
+                          </div>
+                          <div class="form-group">
+                              <label>Réserver du </label>
+                              <input type="date" class="form-control" name="dateDu" required>
+                          </div>
+                          <div class="form-group">
+                              <label>Réserver au </label>
+                              <input type="date" class="form-control" name="dateAu" required>
+                          </div>    
+                          <input type="hidden" name="idChambre" value='.$compteurImage.'>
+                      </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                          <input type="submit" class="btn btn-primary" style="border:none;" value="Ajouter la reservation">
+                        </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>';
+                  
+
                   //Incremente le compteur a image
                   $compteurImage++;
                 }
@@ -47,32 +107,37 @@ include('common/header.php');
                 $chambreLibres = array_diff($toutesLesChambres, $chambreReserver);
                 $compteurImage = 1;
 
-                foreach($listeChambres as $row){
-                  foreach($chambreLibres as $value){
-                    if($value == $compteurImage){
-                      echo '<tr>';
-                      echo '<td>'.$row[0].'</td>';
-                      echo '<td>'.$row[4].' €</td>';
-                      echo '<td>'.$row[1].'</td>';
-                      echo '<td>'.$row[2].'</td>';
-                      echo '</tr>';
-                    }
-                  }$compteurImage++;
-                }
-              ?>
-        </tbody>
-      </table>
+               
+                  foreach($listeChambres as $row){
+                    foreach($chambreLibres as $value){
+                      if($value == $compteurImage){
+                        echo '<tr>';
+                        echo '<td>'.$row[0].'</td>';
+                        echo '<td>'.$row[4].' €</td>';
+                        echo '<td>'.$row[1].'</td>';
+                        echo '<td>'.$row[2].'</td>';
+                        echo '<td>'.$row[5].'</td>';
+                        echo '<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal'.$compteurImage.'">Réserver</button></td>';
+                        echo '</tr>';
+                      }
+                    }$compteurImage++;
+                  }
+                ?>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
-</div>
-
-</div>
-<!-- /.container-fluid -->
-
-</div>
-<!-- End of Main Content -->
-
-<?php 
-//Appel de la navbar
-include('common/footer.php');
-?>
+  
+  
+  </div>
+  <!-- /.container-fluid -->
+  
+  </div>
+  <!-- End of Main Content -->
+ 
+  
+  <?php
+  //Appel de la navbar
+  include('common/footer.php');
+  ?>
