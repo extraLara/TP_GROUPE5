@@ -473,7 +473,13 @@ img {
     color: #eebb4d5b;
 }
 
+/* badge card fixé */
+.badge{
+    position: absolute;
+    left: -34px;
+    top: -185px !important;
 
+}
 
 
 
