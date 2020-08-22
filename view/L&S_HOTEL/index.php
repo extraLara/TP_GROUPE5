@@ -126,7 +126,7 @@
                 echo '    <div class="card-body">';
                 echo '        <div class="col-12"><h5 class="card-title">'.$row[0].'</h5>';
                 echo '          <p class="card-text">'.$row[1].'<br>'.$row[2].'<br>'.$row[3].'<br>';
-                echo '  <div class="badge badge-success"> '.$row[5].' Chambres <br>disponibles </div> '; //badge chambre dispo
+                echo '  <div class="badge badge-success"> '.$row[5].' Disponible(s)</div> '; //badge chambre dispo
                 echo '           <a href="chamber.php?id='.$value.'" class="btn btn-primary" style="border:none">Reserver</a>';
                 echo '        </div>';
                 echo '    </div>';
