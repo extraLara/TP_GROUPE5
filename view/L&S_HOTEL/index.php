@@ -118,7 +118,7 @@
           $compteurImage = 1;
 
           foreach($listeChambres as $row){
-            foreach($chambreLibres as $value){
+            foreach($toutesLesChambres as $value){
               if($value == $compteurImage){
                 echo '<div class="col mb-4">';
                 echo '  <div class="card">';
