@@ -113,21 +113,22 @@
             $compteurImage++;
           }
 
-          //Difference entre les chambres resever et libre
+                   //Difference entre les chambres resever et libre
           $chambreLibres = array_diff($toutesLesChambres, $chambreReserver);
           $compteurImage = 1;
 
           foreach($listeChambres as $row){
             foreach($toutesLesChambres as $value){
-              if($value == $compteurImage){
+              if($value == $compteurImage){                
                 echo '<div class="col mb-4">';
+
                 echo '  <div class="card">';
                 echo '    <img src="assets/rooms/room_'.$value.'.jpg" class="card-img-top" alt="...">';
                 echo '    <div class="card-body">';
                 echo '        <div class="col-12"><h5 class="card-title">'.$row[0].'</h5>';
                 echo '          <p class="card-text">'.$row[1].'<br>'.$row[2].'<br>'.$row[3].'<br>';
                 echo '  <div class="badge badge-success"> '.$row[5].' Disponible(s)</div> '; //badge chambre dispo
-                echo '           <a href="chamber.php?id='.$value.'" class="btn btn-primary" style="border:none">Reserver</a>';
+                echo '<a href="chamber.php?id='.$value.'" class="btn btn-primary" style="border:none"> <i class="fa fa-key"></i> Reserver</a> ';
                 echo '        </div>';
                 echo '    </div>';
                 echo '  </div>';
