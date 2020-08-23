@@ -1,6 +1,6 @@
 <?php
 session_start();
-error_reporting(0);
+//error_reporting(0);
 // include autoloader
 require_once '../classe/dompdf/autoload.inc.php';
 
@@ -46,12 +46,7 @@ foreach($recupCSV as $row){
     }
 }
 
-$html2 = '<!doctype html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-
-
+$html2 = '
 <style type="text/css">
     * {
         font-family: Verdana, Arial, sans-serif;
@@ -70,7 +65,7 @@ $html2 = '<!doctype html>
     }
 </style>
 
-</head>
+
 <body style="font-family:Abel;">
 
   <table width="100%">
@@ -99,6 +94,7 @@ $html2 = '<!doctype html>
     </tr>
 
   </table>
+  
 
   <br/>
 
@@ -137,8 +133,7 @@ $html2 = '<!doctype html>
     </tfoot>
   </table>
 
-</body>
-</html>';
+</body>';
 
 
 // reference the Dompdf namespace
@@ -150,6 +145,7 @@ $dompdf->loadHtml($html2);
 
 // (Optional) Setup the paper size and orientation
 $dompdf->setPaper('A4', 'landscape');
+$dompdf->set_option('enabled_html5_parser', TRUE);
 
 // Render the HTML as PDF
 $dompdf->render();
