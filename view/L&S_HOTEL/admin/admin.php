@@ -49,6 +49,10 @@ foreach($recupReservation as $row){
 //Calcul du nombres de chambres reserver
 $chambreLibres = 65 - count($recupReservation);
 
+//Taux d'occupation
+$tauxOccupations = round((count($recupReservation) * 100) /  $chambreLibres);
+
+
 ?>
 
 <script>
@@ -66,7 +70,7 @@ $("#home").addClass("active");
               <input type="hidden" name="chambreLibres" value="<?php echo $chambreLibres;?>">
               <input type="hidden" name="chambreReserve" value="<?php echo count($recupReservation);?>">
               <input type="hidden" name="chiffreAffaire" value="<?php echo $chiffeAffaire;?>">
-              <input type="hidden" name="tauxOccupation" value="<?php echo $res = count($recupReservation) +1 ; echo $res.'0';?>%">
+              <input type="hidden" name="tauxOccupation" value="<?php echo $tauxOccupations;?>%">
 
               <input type="submit" value="Générer rapport CSV" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
             </form>
@@ -139,7 +143,7 @@ $("#home").addClass("active");
                       <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Taux d'occupation</div>
                       <div class="row no-gutters align-items-center">
                         <div class="col-auto">
-                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php $res = count($recupReservation) +1 ; echo $res.'0';?>%</div>
+                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo $tauxOccupations;?> %</div>
                         </div>
                         <div class="col">
                           <div class="progress progress-sm mr-2">
@@ -287,7 +291,7 @@ var myPieChart = new Chart(ctx, {
   data: {
     labels: ["Reservées", "Libres"],
     datasets: [{
-      data: [<?php echo count($chambreReserver);?>, <?php echo count($chambreLibres);?>],
+      data: [<?php echo count($chambreReserver);?>, <?php echo 65 - count($chambreReserver);?>],
       backgroundColor: ['#082d41', '#eebb4d'],
       hoverBackgroundColor: ['#0b5a85', '#ffae00'],
       hoverBorderColor: "rgba(234, 236, 244, 1)",
