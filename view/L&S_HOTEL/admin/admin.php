@@ -47,7 +47,7 @@ foreach($recupReservation as $row){
 }
 
 //Calcul du nombres de chambres reserver
-$chambreLibres = count($recupChambres) - count($recupReservation);
+$chambreLibres = 65 - count($recupReservation);
 
 ?>
 

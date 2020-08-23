@@ -124,7 +124,7 @@
         </button>
       </div>
       <div class="modal-body">
-          <p>Pas de chambres disponible.</p>
+          <p>Pas de chambres disponibles.</p>
       </div>
       <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
