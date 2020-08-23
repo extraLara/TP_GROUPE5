@@ -65,7 +65,7 @@ $html2 = '<!doctype html>
     }
 
     .gray {
-        background-color: #eebb4d;
+        background-color: #ccae6d;
         color: white;
     }
 </style>
@@ -77,7 +77,7 @@ $html2 = '<!doctype html>
     <tr>
         <td valign="top"><img src="../view/L&S_HOTEL/pdf/logo.png" alt="" width="350"/></td>
         <td align="right">
-            <h3 style="color:#eebb4d">L&S HOTEL</h3>
+            <h3 style="color:#ccae6d">L&S HOTEL</h3>
             <pre>
                 L&S Hotel et Spa **** 
                 20 Rue du Luxembourg, 
