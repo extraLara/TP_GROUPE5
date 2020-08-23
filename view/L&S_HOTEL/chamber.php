@@ -35,7 +35,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 p-3"> 
-                    <img class="img-other" src="assets/rooms/room_7.jpg" style="border-radius:0.25">
+                    <img class="img-other" src="assets/rooms/room_<?php echo $_GET['id'];?>.jpg" style="border-radius:0.25">
                 </div>
                 <div class="col-md-6 p-3 shadow-lg" style="border-radius:5px">
                         <i>Description de la chambre</i><p><br><b>Superficie :</b> <?php echo $infoChambre[1];?><br><b> Type de chambre :</b>  <?php echo $infoChambre[0];?><br><b> Vue sur :</b>  <?php echo $infoChambre[2];?><br>
