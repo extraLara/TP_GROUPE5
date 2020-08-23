@@ -6,6 +6,17 @@
   }else{
     $infoChambre = explode(';', $recupCSV[$_GET['id']-1][0]);
   }
+
+  $compteurChambreRestantes = $infoChambre[5];
+
+  //Récupération des chambres reservers 
+  foreach($recupReservation as $row){
+    if(explode(';', $row[0])[2] == $_GET['id']){
+      $compteurChambreRestantes--;
+    }
+  } 
+
+
 ?>
 <body>
     <div class="py-5 text-center" style="background-color: white !important">
@@ -36,18 +47,36 @@
                                 } 
                             ?>
                         </p>
-                        <h6 align="right"><b> Prix : </b> <?php echo $infoChambre[4];?> €</h6>
-                        <table border="0" align="right">
+                        <?php
+                          if($compteurChambreRestantes == 0){
+                            echo '<h6 class="text-right text-danger"><b>Indisponible</b></h6>';
+                          }
+
+                          if($compteurChambreRestantes == 1){
+                            echo '<h6 class="text-right text-success"><b>'.$compteurChambreRestantes.' chambre disponible</b></h6>';
+                          }
+
+                          if($compteurChambreRestantes > 1){
+                            echo '<h6 class="text-right text-success"><b>'.$compteurChambreRestantes.' chambres disponibles</b></h6>';
+                          }
+                        ?>
+                        <h6 class="text-right"><b> Prix : </b> <?php echo $infoChambre[4];?> €</h6>
+                        <table align="right">
                             <tr>
                                 <td>
                                     &nbsp;
                                 </td>
                                 <td>
-                                    <button type="button" class="btn btn-primary" style="border:none;" data-toggle="modal" data-target="#exampleModal">Réserver</button>                                
+                                  <?php
+                                    if($compteurChambreRestantes == 0){
+                                      echo '<button type="button" class="btn btn-primary" style="border:none;" data-toggle="modal" data-target="#modalFull">Réserver</button>';
+                                    }else{
+                                      echo '<button type="button" class="btn btn-primary" style="border:none;" data-toggle="modal" data-target="#exampleModal">Réserver</button>';
+                                    }
+                                  ?>
                                 </td>
                             </tr>
                         </table>
-                    
                 </div>
             </div>
         </div>
@@ -81,6 +110,25 @@
         <input type="submit" class="btn btn-primary" style="border:none;" value="Procéder au paiement">
       </div>
       </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalFull" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><i class="fa fa-info-circle"></i>&nbsp;Informations</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <p>Pas de chambres disponible.</p>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+      </div>                         
     </div>
   </div>
 </div>
