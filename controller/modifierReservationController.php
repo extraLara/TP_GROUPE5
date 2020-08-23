@@ -5,7 +5,7 @@ $recupIDChambre = $_POST['idChambre'];
 $recupDateAu = $_POST['dateAu'];
 $recupDateDu = $_POST['dateDu'];
 $recupUser = "";
-$recupIDReservation = "";
+$recupIDReservation = $_POST['idReservation'];
 
 function deleteLineInFile($file,$string){
     $i=0;$array=array();
@@ -39,10 +39,9 @@ array_shift($recupReservations);
 
 //Je boucle sur les reservations
 foreach($recupReservations as $row){
-    if($recupIDChambre == explode(';', $row[0])[2]){
+    if($recupIDReservation == explode(';', $row[0])[0]){
         //Recuperation de l'user
         $recupUser = explode(';', $row[0])[1];
-        $recupIDReservation = explode(';', $row[0])[0];
         deleteLineInFile("../input/Reservation.csv", $row[0]);
     }
 }

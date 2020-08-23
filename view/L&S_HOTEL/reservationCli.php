@@ -21,7 +21,7 @@
   //Recuperation des chambres reserves par l'utilisateur
   foreach($recupCSVReservations as $row){
       if(explode(';', $row[0])[1] == $_SESSION['ID']){
-          array_push($tabChambresClient, explode(';', $row[0])[2]);
+          array_push($tabChambresClient, explode(';', $row[0])[2].';'.explode(';', $row[0])[0]);
           array_push($tabDateReservationsChambresClient, explode(';', $row[0])[2] .';'. date("d/m/Y", strtotime(explode(';', $row[0])[3])).' au '. date("d/m/Y", strtotime(explode(';', $row[0])[4])));
       }
   }
@@ -46,7 +46,7 @@
                 $compteurChambre = 1;
                 foreach($listeChambres as $row){
                     foreach($tabChambresClient as $value){
-                        if($value == $compteurChambre){
+                        if(explode(';', $value)[0] == $compteurChambre){
                             //Création des modals
                             echo '
                             <div class="modal fade" id="modal'.$compteurChambre.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -68,6 +68,7 @@
                                             <label>Réserver au </label>
                                             <input type="date" min="'.date('Y-m-d').'" class="form-control" name="dateAu" required>
                                         </div>    
+                                        <input type="hidden" name="idReservation" value="'.explode(';', $value)[1].'">
                                         <input type="hidden" name="idChambre" value='.$compteurChambre.'>
                                     </div>
                                         <div class="modal-footer">
@@ -85,7 +86,7 @@
                                 echo '</div>';
                                 echo '<div class="col-md-6 p-3 shadow-lg" style="border-radius:0.35em">';
                                 foreach($tabDateReservationsChambresClient as $key){
-                                    if(explode(';', $key)[0] == $value){
+                                    if(explode(';', $key)[0] == explode(';', $value)[0]){
                                         echo 'Date de réservation : '.explode(';', $key)[1];
                                     }
                                 }
@@ -99,7 +100,7 @@
                                     <table border="0">
                                         <tr>
                                             <td>
-                                                <a class="btn btn-primary text-right" href="../../controller/annulationReservationController.php?idChambre='.$value.'" style="border:none">Annuler</a>
+                                                <a class="btn btn-primary text-right" href="../../controller/annulationReservationController.php?idReservation='.explode(';', $value)[1].'" style="border:none">Annuler</a>
                                             &nbsp;</td>
                                             <td>
                                              
