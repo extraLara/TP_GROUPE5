@@ -53,8 +53,9 @@
               echo '        <div class="col-12"><h5 class="card-title">'.$row[0].'</h5>';
               echo '          <p class="card-text">'.$row[1].'<br>'.$row[2].'<br>'.$row[3].'<br>';
               foreach($chambreReser as $value){
+                $compteurChambreDispoRestant = $row[5] - 1;
                 if($compteurImage == $value[0]){
-                  $compteurChambreDispoRestant = $row[5] - 1;
+                  $compteurChambreDispoRestant--;
                   echo '<script>
                   $( document ).ready(function() {
                     $("#dispo'.$compteurImage.'").html("'.$compteurChambreDispoRestant.' Disponible(s)");
