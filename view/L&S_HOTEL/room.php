@@ -78,7 +78,7 @@
                 }
               }
               echo '          <div id="dispo'.$compteurImage.'" class="badge badge-success">'.$row[5].' Disponibles</div> '; //badge chambre dispo
-              echo '          <a href="chamber.php?id='.$compteurImage.'" class="btn btn-primary" style="border:none"> <i class="fa fa-key"></i> Reserver</a> ';
+              echo '          <a href="chamber.php?id='.$compteurImage.'" class="btn btn-primary" style="border:none"> <!--<i class="fa fa-key"></i>--> Reserver</a> ';
               echo '        </div>';
               echo '    </div>';
               echo '  </div>';
