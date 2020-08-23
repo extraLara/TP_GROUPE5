@@ -1,5 +1,6 @@
 <?php
 session_start();
+error_reporting(0);
 // include autoloader
 require_once '../classe/dompdf/autoload.inc.php';
 
