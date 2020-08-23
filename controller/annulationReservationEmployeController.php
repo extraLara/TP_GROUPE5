@@ -1,7 +1,7 @@
 <?php
     session_start();
     //Récupération de l'id Chambre 
-    $recupIDChambre = $_GET['idChambre'];
+    $recupIDChambre = $_GET['idReservation'];
 
     function deleteLineInFile($file,$string){
         $i=0;$array=array();
@@ -35,7 +35,7 @@
 
     $reservationSupprimer = null;
     foreach($recupCSV as $row){
-        if(/*(explode(';', $row[0])[1] == $_SESSION['ID']) &&*/ (explode(';', $row[0])[2] == $recupIDChambre)){
+        if(/*(explode(';', $row[0])[1] == $_SESSION['ID']) &&*/ (explode(';', $row[0])[0] == $recupIDChambre)){
             deleteLineInFile("../input/Reservation.csv", $row[0]);
         }
     }

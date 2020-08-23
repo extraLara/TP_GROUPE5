@@ -147,7 +147,7 @@ $("#home").addClass("active");
                         </div>
                         <div class="col">
                           <div class="progress progress-sm mr-2">
-                            <div class="progress-bar bg-info" role="progressbar" style="width: <?php echo count($recupReservation).'0';?>%" aria-valuenow="<?php echo count($recupReservation).'0';?>" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-info" role="progressbar" style="width: <?php echo $tauxOccupations;?>%" aria-valuenow="<?php echo $tauxOccupations.'0';?>" aria-valuemin="0" aria-valuemax="100"></div>
                           </div>
                         </div>
                       </div>

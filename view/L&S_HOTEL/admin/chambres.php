@@ -13,6 +13,14 @@ for ($i = 0;$row = fgetcsv($handle);$i++) {
 fclose($handle);
 //Suppression du premier element
 array_shift($recupUser);
+
+$chambreReser = array();
+
+//Récupération des chambres reservers 
+foreach($recupReservation as $row){
+  array_push($chambreReser, explode(';', $row[0])[2]);
+} 
+
 ?>
 <script>
 //Ajout la classe active
@@ -47,17 +55,10 @@ $("#chambres").addClass("active");
 
         <tbody>
             <?php
-                $chambreReserver = array();
-                $toutesLesChambres = array();
-                foreach($listeChambres as $row){
-                  foreach($recupReservation as $value){
-                    if(explode(';', $value[0])[2] == $compteurImage){
-                      array_push($chambreReserver,$compteurImage);
-                    }
-                  }      
-                  array_push($toutesLesChambres, $compteurImage);
-                  //CREATION DU MODAL SELON LA CHAMBRE 
-                  echo '
+              $compteurChambre = 1;
+              foreach($listeChambres as $row){
+                $compteurChambreDispoRestant = $row[5];
+                echo '
                   <div class="modal fade" id="modal'.$compteurImage.'" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
@@ -73,8 +74,8 @@ $("#chambres").addClass("active");
                             <label>Selectionner le client</label>
                             <select name="client" class="form-control">
                               ';
-                                foreach($recupUser as $row){
-                                  echo '<option value="'.explode(";", $row[0])[0].'">'.explode(";", $row[0])[1].' '.explode(";", $row[0])[2].'</option>';
+                                foreach($recupUser as $value){
+                                  echo '<option value="'.explode(";", $value[0])[0].'">'.explode(";", $value[0])[1].' '.explode(";", $value[0])[2].'</option>';
                                 }
                               echo '
                             </select>
@@ -97,32 +98,32 @@ $("#chambres").addClass("active");
                       </div>
                     </div>
                   </div>';
-                  
+                foreach($chambreReser as $value){
+                  if($compteurImage == $value[0]){
+                    $compteurChambreDispoRestant--;
+                    echo '<script>
+                      $( document ).ready(function() {
+                        let recupCompteur = '.$compteurChambreDispoRestant.';
 
-                  //Incremente le compteur a image
-                  $compteurImage++;
-                }
-
-                //Difference entre les chambres resever et libre
-                $chambreLibres = array_diff($toutesLesChambres, $chambreReserver);
-                $compteurImage = 1;
-
-               
-                  foreach($listeChambres as $row){
-                    foreach($chambreLibres as $value){
-                      if($value == $compteurImage){
-                        echo '<tr>';
-                        echo '<td>'.$row[0].'</td>';
-                        echo '<td>'.$row[4].' €</td>';
-                        echo '<td>'.$row[1].'</td>';
-                        echo '<td>'.$row[2].'</td>';
-                        echo '<td>'.$row[5].'</td>';
-                        echo '<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal'.$compteurImage.'">Réserver</button></td>';
-                        echo '</tr>';
-                      }
-                    }$compteurImage++;
+                        if(recupCompteur == 0){
+                          $("#dispo'.$compteurImage.'").html("Indisponible");
+                          $("#dispo'.$compteurImage.'").prop("disabled", true);
+                        }
+                      });
+                      </script>';
                   }
-                ?>
+                }
+                echo '<tr>';
+                  echo '<td>'.$row[0].'</td>';
+                  echo '<td>'.$row[4].' €</td>';
+                  echo '<td>'.$row[1].'</td>';
+                  echo '<td>'.$row[2].'</td>';
+                  echo '<td>'.$compteurChambreDispoRestant.'</td>';
+                  echo '<td><button id="dispo'.$compteurImage.'" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal'.$compteurImage.'">Réserver</button></td>';
+                echo '</tr>';
+                $compteurImage++;
+              }
+            ?>
           </tbody>
         </table>
       </div>

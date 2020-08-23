@@ -74,6 +74,7 @@ $("#reservations").addClass("active");
                                       <input type="date" min="'.date('Y-m-d').'" class="form-control" name="dateAu" required>
                                   </div>    
                                   <input type="hidden" name="idChambre" value="'.$compteurImage.'">
+                                  <input type="hidden" name="idReservation" value="'.explode(';', $value[0])[0].'">
                               </div>
                                 <div class="modal-footer">
                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
@@ -95,7 +96,7 @@ $("#reservations").addClass("active");
                             }
                         }
                         echo '<td>Du '.date("d/m/Y", strtotime(explode(';', $value[0])[3])).' au '.date("d/m/Y", strtotime(explode(';', $value[0])[4])).'</td>';
-                        echo '<td><a href="../../../controller/annulationReservationEmployeController.php?idChambre='.$compteurImage.'">Annuler</a></td>';
+                        echo '<td><a href="../../../controller/annulationReservationEmployeController.php?idReservation='.explode(';', $value[0])[0].'">Annuler</a></td>';
                         echo '<td><a href="#" data-toggle="modal" data-target="#modalReserEdit'.$compteurImage.'">Modifier</a></td>';
                         echo '</tr>';
                       }

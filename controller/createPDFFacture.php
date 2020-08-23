@@ -47,6 +47,9 @@ foreach($recupCSV as $row){
 }
 
 $html2 = '
+<!--<html>
+<head>
+</head>-->
 <style type="text/css">
     * {
         font-family: Verdana, Arial, sans-serif;

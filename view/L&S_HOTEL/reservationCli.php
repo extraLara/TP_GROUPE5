@@ -91,15 +91,15 @@
                                 }
                                     echo '<br><i><br>Description de la chambre</i><p><br>Superficie : '.$row[1].'<br>Type de chambre : '.$row[0].'<br>Vue sur : '.$row[2].'<br>Options :';
                                     echo '<ul>';
-                                        foreach(explode('|', $row[6]) as $value){
-                                        echo '<p>'.$value.'</p>';
+                                        foreach(explode('|', $row[6]) as $valueZ){
+                                        echo '<p>'.$valueZ.'</p>';
                                         }       
                                       echo '</ul>';
                                     echo '<br></p>
                                     <table border="0">
                                         <tr>
                                             <td>
-                                                <a class="btn btn-primary text-right" href="../../controller/annulationReservationController.php?idChambre='.$compteurChambre.'" style="border:none">Annuler</a>
+                                                <a class="btn btn-primary text-right" href="../../controller/annulationReservationController.php?idChambre='.$value.'" style="border:none">Annuler</a>
                                             &nbsp;</td>
                                             <td>
                                              

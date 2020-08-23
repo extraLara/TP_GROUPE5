@@ -196,7 +196,7 @@ array_shift($recupReservation);
       <li class="nav-item">
         <a class="nav-link" href="../../../controller/logoutController.php">
           <i class="fa fa-sign-out-alt"></i>
-          <span>Deconnexion</span></a>
+          <span>Déconnexion</span></a>
       </li>
       
       <hr class="sidebar-divider">

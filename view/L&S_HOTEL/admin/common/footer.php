@@ -3,7 +3,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto"></div>
           <div class="copyright text-center my-auto">
-            <p>L&S HOTEL et SPA © 2020 All rights reserved.</p>
+            <p>L&S HOTEL et SPA © <?php echo  date('Y');?> All rights reserved.</p>
               <p>Created with <a href="#"><i id="social-he" class="fa fa-heart"></i></a> by <a href="#">Lara & Samira</a></p>
           </div>
         </div>
