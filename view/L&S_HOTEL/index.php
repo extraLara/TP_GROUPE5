@@ -8,10 +8,6 @@
   foreach($recupReservation as $row){
     array_push($chambreReser, explode(';', $row[0])[2]);
   } 
-
-  sort($chambreReser);
-
-  var_dump($chambreReser);
 ?>
 <body>
           <!-- Caroussel -->
@@ -114,6 +110,7 @@
 
         $compteurImage = 1;
           foreach($listeChambres as $row){
+            $compteurChambreDispoRestant = $row[5];
               echo '<div class="col mb-4">';
               echo '  <div class="card">';
               echo '    <img src="assets/rooms/room_'.$compteurImage.'.jpg" class="card-img-top" alt="...">';
@@ -121,17 +118,30 @@
               echo '        <div class="col-12"><h5 class="card-title">'.$row[0].'</h5>';
               echo '          <p class="card-text">'.$row[1].'<br>'.$row[2].'<br>'.$row[3].'<br>';
               foreach($chambreReser as $value){
-                $compteurChambreDispoRestant = $row[5] - 1;
                 if($compteurImage == $value[0]){
                   $compteurChambreDispoRestant--;
                   echo '<script>
                   $( document ).ready(function() {
                     $("#dispo'.$compteurImage.'").html("'.$compteurChambreDispoRestant.' Disponible(s)");
+
+                    let recupCompteur = '.$compteurChambreDispoRestant.';
+
+                    if(recupCompteur == 0){
+                      $("#dispo'.$compteurImage.'").html("Indisponible");
+                      $("#dispo'.$compteurImage.'").removeClass("badge badge-success");
+                      $("#dispo'.$compteurImage.'").addClass("badge badge-danger");
+                    }
+                    if(recupCompteur == 1){
+                      $("#dispo'.$compteurImage.'").html("'.$compteurChambreDispoRestant.' Disponible");
+                    }
+                    if(recupCompteur > 1){
+                      $("#dispo'.$compteurImage.'").html("'.$compteurChambreDispoRestant.' Disponibles");
+                    }
                   });
                   </script>';
                 }
               }
-              echo '          <div id="dispo'.$compteurImage.'" class="badge badge-success">'.$row[5].' Disponible(s)</div> '; //badge chambre dispo
+              echo '          <div id="dispo'.$compteurImage.'" class="badge badge-success">'.$row[5].' Disponibles</div> '; //badge chambre dispo
               echo '          <a href="chamber.php?id='.$compteurImage.'" class="btn btn-primary" style="border:none"> <i class="fa fa-key"></i> Reserver</a> ';
               echo '        </div>';
               echo '    </div>';
