@@ -1,0 +1,4 @@
+ID;Nom;Prenom;DateNaissance;Adresse;Ville;CP;Tel;Mail;Login;Pass
+1;bend;jeams;2001-01-01;;;;;;test;123
+2;coucou;test;;;;;;;lara;123
+"3;Potter;Harry;1980-07-31;9/3 rue des Moldus;Poudlard;14790;0605060244;harrypotter@hotmail.fr;harrywitch;123"

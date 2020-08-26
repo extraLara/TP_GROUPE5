@@ -6,64 +6,47 @@
         //Déclarations des attributs
         private $etat;
         private $chambreNumero;
-        private $nomFichierCSV;
+        private $superficie; 
+        public $prix; 
+        public $typeChambre; 
+        public $options;
+        public $chambrePaye;
 
+        //Methodes
+        //------------------------------------------------------
         //Déclaration du constructeur
-        public function __construct($nouveauNom, $nouveauLieu, $nouveauNombreChambres, $nouveauChiffreAff, $nouvelEtat, $nouveauNumeroChambre, $nouveauNomFichierCSV){
+        public function __construct($nouveauNom, $nouveauLieu, $nouveauNombreChambres, $nouveauChiffreAff, $nouvelEtat, $nouveauNumeroChambre,$nouveauSuperficie,$nouveauPrix,$nouveauTypeChambre,$nouveauOptions){
             //Définition de la chambre
             $this->etat = $nouvelEtat;
             $this->chambreNumero = $nouveauNumeroChambre;
-            $this->nomFichierCSV = $nouveauNomFichierCSV;
+            $this->superficie = $nouveauSuperficie; 
+            $this->prix = $nouveauPrix;
+            $this->typeChambre = $nouveauTypeChambre;
+            $this->options = $nouveauOptions;   
+            $this->chambrePaye = 0;                   
             //appel du constructeur
             parent::__construct($nouveauNom, $nouveauLieu, $nouveauNombreChambres, $nouveauChiffreAff);
         }
 
-        //GETTER
-        public function getEtat(): int{
-            return (int)$this->etat;
-        }
-
-        public function getChambreNumero(): int{
-            return $this->chambreNumero;
-        }
-
-        //SETTER
-        public function setEtat($nouveauNom):void{
-            $this->etat = $nouveauNom;
-        }
-
-        public function setChambreNumero($nouveauNumeroChambre): void{
-            $this->chambreNumero = $nouveauNumeroChambre;
-        }
-
-        //toString
+        //Fonction toString
         public function __toString(): string{
             return "Nom : ".parent::getNom().PHP_EOL. " Adresse : ".parent::getLieu().PHP_EOL. " Etat : ".$this->etat.PHP_EOL." Chambre n° : ".$this->chambreNumero;
         }
 
-        public function csv(){
-            $handle = fopen($this->nomFichierCSV, "r");
-            for ($i = 0; $row = fgetcsv($handle); ++$i) {
-                //Row me donne les lignes a definir apres
-                //$row
-            }
-            fclose($handle);
-
-        }
-
-        public function filtreChambre(){
-            //array_filter()
-        }
-
-        public function triChambre(){
-            //array_filter()
-        }
+        //Fonction reserver Chambre
         public function reserveChambre(){
             $this->setEtat(1);
         }
+
+        //Fonction Liberer la chambre
         public function libereChambre(){
             $this->setEtat(0);
         }
+
+        //Fonction pour payer
+        public function payer($etatPayer): void{
+            $this->chambrePaye = $etatPayer;
+        }   
     }
 
 ?>
